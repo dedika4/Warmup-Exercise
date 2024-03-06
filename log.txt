@@ -1,0 +1,57 @@
+Running RLE compression on Texts/binary_image.txt...
+Reading file : Texts/binary_image.txt
+
+Algorithm: RLE
+RLE Compression Ratio: 1.36022, RLE Compression Time: 4913 microseconds, RLE Decompression Time: 2303 microseconds
+
+Massif report generated: Texts/binary_image.txt_RLE_massif.txt
+Running RLE compression on Texts/high_entropy.txt...
+Reading file : Texts/high_entropy.txt
+
+Algorithm: RLE
+RLE Compression Ratio: 0.508964, RLE Compression Time: 8164 microseconds, RLE Decompression Time: 3159 microseconds
+
+Massif report generated: Texts/high_entropy.txt_RLE_massif.txt
+Running RLE compression on Texts/lorem_ipsum.txt...
+Reading file : Texts/lorem_ipsum.txt
+
+Algorithm: RLE
+RLE Compression Ratio: 0.5, RLE Compression Time: 14918 microseconds, RLE Decompression Time: 4814 microseconds
+
+Massif report generated: Texts/lorem_ipsum.txt_RLE_massif.txt
+Running RLE compression on Texts/reccurent_text.txt...
+Reading file : Texts/reccurent_text.txt
+
+Algorithm: RLE
+RLE Compression Ratio: 3.5, RLE Compression Time: 4627 microseconds, RLE Decompression Time: 1770 microseconds
+
+Massif report generated: Texts/reccurent_text.txt_RLE_massif.txt
+Running LZW compression on Texts/binary_image.txt...
+Reading file : Texts/binary_image.txt
+
+Algorithm: LZW
+RLE Compression Ratio: 3.51389, RLE Compression Time: 18099 microseconds, RLE Decompression Time: 11091 microseconds
+
+Massif report generated: Texts/binary_image.txt_LZW_massif.txt
+Running LZW compression on Texts/high_entropy.txt...
+Reading file : Texts/high_entropy.txt
+
+Algorithm: LZW
+RLE Compression Ratio: 1.11816, RLE Compression Time: 24524 microseconds, RLE Decompression Time: 16420 microseconds
+
+Massif report generated: Texts/high_entropy.txt_LZW_massif.txt
+Running LZW compression on Texts/lorem_ipsum.txt...
+Reading file : Texts/lorem_ipsum.txt
+
+Algorithm: LZW
+RLE Compression Ratio: 1.27551, RLE Compression Time: 17065 microseconds, RLE Decompression Time: 10465 microseconds
+
+Massif report generated: Texts/lorem_ipsum.txt_LZW_massif.txt
+Running LZW compression on Texts/reccurent_text.txt...
+Reading file : Texts/reccurent_text.txt
+
+Algorithm: LZW
+RLE Compression Ratio: 2, RLE Compression Time: 19506 microseconds, RLE Decompression Time: 11886 microseconds
+
+Massif report generated: Texts/reccurent_text.txt_LZW_massif.txt
+All done.

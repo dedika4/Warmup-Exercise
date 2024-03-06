@@ -1,0 +1,378 @@
+--------------------------------------------------------------------------------
+Command:            ./compressor Texts/lorem_ipsum.txt RLE
+Massif arguments:   --massif-out-file=massif.out
+ms_print arguments: massif.out
+--------------------------------------------------------------------------------
+
+
+    KB
+8.836^                                                            #           
+     |                                                         :::#           
+     |                                                         :  #           
+     |                                                         :  #           
+     |                                                         :  #           
+     |                                                         :  #           
+     |                                                         :  #           
+     |                                                         :  #           
+     |                                                         :  #           
+     |                                                         :  #           
+     |                                                         :  #           
+     |                                                         :  #           
+     |                                                         :  #           
+     |                                                         :  #           
+     |                                                         :  #           
+     |                                                         :  #           
+     |                                                         :  #           
+     |                                                         :  #           
+     |                                                         :  #           
+     |                                                         :  #  :@::@:@@@
+   0 +----------------------------------------------------------------------->Mi
+     0                                                                   1.767
+
+Number of snapshots: 71
+ Detailed snapshots: [6 (peak), 21, 22, 37, 45, 56, 66]
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+  0              0                0                0             0            0
+  1      1,455,396               56               46            10            0
+  2      1,456,882               96               74            22            0
+  3      1,471,271              680              642            38            0
+  4      1,473,496            8,880            8,834            46            0
+  5      1,551,147            9,048            8,984            64            0
+  6      1,563,664            9,048            8,984            64            0
+99.29% (8,984B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->90.54% (8,192B) 0x4EE41AB: std::basic_filebuf<char, std::char_traits<char> >::_M_allocate_internal_buffer() (in /usr/lib64/libstdc++.so.6.0.19)
+| ->90.54% (8,192B) 0x4EE47F1: std::basic_filebuf<char, std::char_traits<char> >::open(char const*, std::_Ios_Openmode) (in /usr/lib64/libstdc++.so.6.0.19)
+|   ->90.54% (8,192B) 0x4EE5BB0: std::basic_ifstream<char, std::char_traits<char> >::basic_ifstream(std::string const&, std::_Ios_Openmode) (in /usr/lib64/libstdc++.so.6.0.19)
+|     ->90.54% (8,192B) 0x409117: readTextFile(std::string const&) (file_io.cpp:8)
+|       ->90.54% (8,192B) 0x402DBF: main (main.cpp:95)
+|         
+->06.28% (568B) 0x56BBC4C: __fopen_internal (in /usr/lib64/libc-2.17.so)
+| ->06.28% (568B) 0x4EA94CF: std::__basic_file<char>::open(char const*, std::_Ios_Openmode, int) (in /usr/lib64/libstdc++.so.6.0.19)
+|   ->06.28% (568B) 0x4EE47D9: std::basic_filebuf<char, std::char_traits<char> >::open(char const*, std::_Ios_Openmode) (in /usr/lib64/libstdc++.so.6.0.19)
+|     ->06.28% (568B) 0x4EE5BB0: std::basic_ifstream<char, std::char_traits<char> >::basic_ifstream(std::string const&, std::_Ios_Openmode) (in /usr/lib64/libstdc++.so.6.0.19)
+|       ->06.28% (568B) 0x409117: readTextFile(std::string const&) (file_io.cpp:8)
+|         ->06.28% (568B) 0x402DBF: main (main.cpp:95)
+|           
+->02.48% (224B) 0x4EEACD8: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+  ->01.66% (150B) 0x409668: char* std::string::_S_construct<std::istreambuf_iterator<char, std::char_traits<char> > >(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::allocator<char> const&, std::input_iterator_tag) (basic_string.tcc:533)
+  | ->01.66% (150B) 0x40951C: char* std::string::_S_construct_aux<std::istreambuf_iterator<char, std::char_traits<char> > >(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::allocator<char> const&, std::__false_type) (basic_string.h:5052)
+  |   ->01.66% (150B) 0x4094CC: char* std::string::_S_construct<std::istreambuf_iterator<char, std::char_traits<char> > >(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::allocator<char> const&) (basic_string.h:5073)
+  |     ->01.66% (150B) 0x409462: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<std::istreambuf_iterator<char, std::char_traits<char> > >(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::allocator<char> const&) (basic_string.tcc:679)
+  |       ->01.66% (150B) 0x4091B8: readTextFile(std::string const&) (file_io.cpp:11)
+  |         ->01.66% (150B) 0x402DBF: main (main.cpp:95)
+  |           
+  ->00.82% (74B) in 1+ places, all below ms_print's threshold (01.00%)
+  
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+  7      1,567,609              264              224            40            0
+  8      1,580,559              304              250            54            0
+  9      1,585,418              304              251            53            0
+ 10      1,589,928              344              278            66            0
+ 11      1,595,556              320              257            63            0
+ 12      1,599,951              320              265            55            0
+ 13      1,602,942              336              281            55            0
+ 14      1,608,566              336              281            55            0
+ 15      1,614,369              368              313            55            0
+ 16      1,619,993              368              313            55            0
+ 17      1,625,617              368              313            55            0
+ 18      1,631,241              368              313            55            0
+ 19      1,637,997              472              403            69            0
+ 20      1,643,621              472              403            69            0
+ 21      1,649,245              472              403            69            0
+85.38% (403B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->85.38% (403B) 0x4EEACD8: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| ->32.42% (153B) 0x4EEB8EA: std::string::_Rep::_M_clone(std::allocator<char> const&, unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->32.42% (153B) 0x4EEB993: std::string::reserve(unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| |   ->32.42% (153B) 0x4EEBA57: std::string::append(std::string const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| |     ->32.42% (153B) 0x403988: compressRLE(std::string const&) (rle.cpp:12)
+| |       ->32.42% (153B) 0x402816: benchmarkCompression(std::string const&, std::string const&) (main.cpp:42)
+| |         ->32.42% (153B) 0x402DE1: main (main.cpp:98)
+| |           
+| ->31.78% (150B) 0x409668: char* std::string::_S_construct<std::istreambuf_iterator<char, std::char_traits<char> > >(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::allocator<char> const&, std::input_iterator_tag) (basic_string.tcc:533)
+| | ->31.78% (150B) 0x40951C: char* std::string::_S_construct_aux<std::istreambuf_iterator<char, std::char_traits<char> > >(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::allocator<char> const&, std::__false_type) (basic_string.h:5052)
+| |   ->31.78% (150B) 0x4094CC: char* std::string::_S_construct<std::istreambuf_iterator<char, std::char_traits<char> > >(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::allocator<char> const&) (basic_string.h:5073)
+| |     ->31.78% (150B) 0x409462: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<std::istreambuf_iterator<char, std::char_traits<char> > >(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::allocator<char> const&) (basic_string.tcc:679)
+| |       ->31.78% (150B) 0x4091B8: readTextFile(std::string const&) (file_io.cpp:11)
+| |         ->31.78% (150B) 0x402DBF: main (main.cpp:95)
+| |           
+| ->15.68% (74B) 0x4EEAE95: std::string::_M_mutate(unsigned long, unsigned long, unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->15.68% (74B) 0x4EEB45D: std::string::_M_replace_safe(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| | | ->09.75% (46B) 0x402D20: main (main.cpp:84)
+| | | | 
+| | | ->05.93% (28B) 0x402D31: main (main.cpp:85)
+| | |   
+| | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->05.51% (26B) 0x40405E: char* std::string::_S_construct<char*>(char*, char*, std::allocator<char> const&, std::forward_iterator_tag) (basic_string.tcc:578)
+|   ->05.51% (26B) 0x403F77: char* std::string::_S_construct_aux<char*>(char*, char*, std::allocator<char> const&, std::__false_type) (basic_string.h:5052)
+|     ->05.51% (26B) 0x403F49: char* std::string::_S_construct<char*>(char*, char*, std::allocator<char> const&) (basic_string.h:5073)
+|       ->05.51% (26B) 0x403EF3: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<char*>(char*, char*, std::allocator<char> const&) (basic_string.tcc:679)
+|         ->05.51% (26B) 0x403E32: std::string __gnu_cxx::__to_xstring<std::string, char>(int (*)(char*, unsigned long, char const*, __va_list_tag*), unsigned long, char const*, ...) (string_conversions.h:115)
+|           ->05.51% (26B) 0x403B90: std::to_string(int) (basic_string.h:6455)
+|             ->05.51% (26B) 0x40394A: compressRLE(std::string const&) (rle.cpp:12)
+|               ->05.51% (26B) 0x402816: benchmarkCompression(std::string const&, std::string const&) (main.cpp:42)
+|                 ->05.51% (26B) 0x402DE1: main (main.cpp:98)
+|                   
+->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 22      1,656,275              472              403            69            0
+85.38% (403B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->85.38% (403B) 0x4EEACD8: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| ->32.42% (153B) 0x4EEB8EA: std::string::_Rep::_M_clone(std::allocator<char> const&, unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->32.42% (153B) 0x4EEB993: std::string::reserve(unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| |   ->32.42% (153B) 0x4EEBA57: std::string::append(std::string const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| |     ->32.42% (153B) 0x403988: compressRLE(std::string const&) (rle.cpp:12)
+| |       ->32.42% (153B) 0x402816: benchmarkCompression(std::string const&, std::string const&) (main.cpp:42)
+| |         ->32.42% (153B) 0x402DE1: main (main.cpp:98)
+| |           
+| ->31.78% (150B) 0x409668: char* std::string::_S_construct<std::istreambuf_iterator<char, std::char_traits<char> > >(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::allocator<char> const&, std::input_iterator_tag) (basic_string.tcc:533)
+| | ->31.78% (150B) 0x40951C: char* std::string::_S_construct_aux<std::istreambuf_iterator<char, std::char_traits<char> > >(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::allocator<char> const&, std::__false_type) (basic_string.h:5052)
+| |   ->31.78% (150B) 0x4094CC: char* std::string::_S_construct<std::istreambuf_iterator<char, std::char_traits<char> > >(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::allocator<char> const&) (basic_string.h:5073)
+| |     ->31.78% (150B) 0x409462: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<std::istreambuf_iterator<char, std::char_traits<char> > >(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::allocator<char> const&) (basic_string.tcc:679)
+| |       ->31.78% (150B) 0x4091B8: readTextFile(std::string const&) (file_io.cpp:11)
+| |         ->31.78% (150B) 0x402DBF: main (main.cpp:95)
+| |           
+| ->15.68% (74B) 0x4EEAE95: std::string::_M_mutate(unsigned long, unsigned long, unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->15.68% (74B) 0x4EEB45D: std::string::_M_replace_safe(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| | | ->09.75% (46B) 0x402D20: main (main.cpp:84)
+| | | | 
+| | | ->05.93% (28B) 0x402D31: main (main.cpp:85)
+| | |   
+| | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->05.51% (26B) 0x40405E: char* std::string::_S_construct<char*>(char*, char*, std::allocator<char> const&, std::forward_iterator_tag) (basic_string.tcc:578)
+|   ->05.51% (26B) 0x403F77: char* std::string::_S_construct_aux<char*>(char*, char*, std::allocator<char> const&, std::__false_type) (basic_string.h:5052)
+|     ->05.51% (26B) 0x403F49: char* std::string::_S_construct<char*>(char*, char*, std::allocator<char> const&) (basic_string.h:5073)
+|       ->05.51% (26B) 0x403EF3: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<char*>(char*, char*, std::allocator<char> const&) (basic_string.tcc:679)
+|         ->05.51% (26B) 0x403E32: std::string __gnu_cxx::__to_xstring<std::string, char>(int (*)(char*, unsigned long, char const*, __va_list_tag*), unsigned long, char const*, ...) (string_conversions.h:115)
+|           ->05.51% (26B) 0x403B90: std::to_string(int) (basic_string.h:6455)
+|             ->05.51% (26B) 0x40394A: compressRLE(std::string const&) (rle.cpp:12)
+|               ->05.51% (26B) 0x402816: benchmarkCompression(std::string const&, std::string const&) (main.cpp:42)
+|                 ->05.51% (26B) 0x402DE1: main (main.cpp:98)
+|                   
+->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 23      1,661,899              472              403            69            0
+ 24      1,667,523              472              403            69            0
+ 25      1,670,794              432              377            55            0
+ 26      1,676,418              432              377            55            0
+ 27      1,682,233              560              505            55            0
+ 28      1,687,857              560              505            55            0
+ 29      1,693,481              560              505            55            0
+ 30      1,699,105              560              505            55            0
+ 31      1,705,891              640              558            82            0
+ 32      1,709,894              600              531            69            0
+ 33      1,715,518              600              531            69            0
+ 34      1,721,142              600              531            69            0
+ 35      1,726,766              600              531            69            0
+ 36      1,732,390              600              531            69            0
+ 37      1,738,014              600              531            69            0
+88.50% (531B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->88.50% (531B) 0x4EEACD8: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| ->46.83% (281B) 0x4EEB8EA: std::string::_Rep::_M_clone(std::allocator<char> const&, unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->46.83% (281B) 0x4EEB993: std::string::reserve(unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| |   ->46.83% (281B) 0x4EEBA57: std::string::append(std::string const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| |     ->46.83% (281B) 0x403988: compressRLE(std::string const&) (rle.cpp:12)
+| |       ->46.83% (281B) 0x402816: benchmarkCompression(std::string const&, std::string const&) (main.cpp:42)
+| |         ->46.83% (281B) 0x402DE1: main (main.cpp:98)
+| |           
+| ->25.00% (150B) 0x409668: char* std::string::_S_construct<std::istreambuf_iterator<char, std::char_traits<char> > >(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::allocator<char> const&, std::input_iterator_tag) (basic_string.tcc:533)
+| | ->25.00% (150B) 0x40951C: char* std::string::_S_construct_aux<std::istreambuf_iterator<char, std::char_traits<char> > >(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::allocator<char> const&, std::__false_type) (basic_string.h:5052)
+| |   ->25.00% (150B) 0x4094CC: char* std::string::_S_construct<std::istreambuf_iterator<char, std::char_traits<char> > >(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::allocator<char> const&) (basic_string.h:5073)
+| |     ->25.00% (150B) 0x409462: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<std::istreambuf_iterator<char, std::char_traits<char> > >(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::allocator<char> const&) (basic_string.tcc:679)
+| |       ->25.00% (150B) 0x4091B8: readTextFile(std::string const&) (file_io.cpp:11)
+| |         ->25.00% (150B) 0x402DBF: main (main.cpp:95)
+| |           
+| ->12.33% (74B) 0x4EEAE95: std::string::_M_mutate(unsigned long, unsigned long, unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->12.33% (74B) 0x4EEB45D: std::string::_M_replace_safe(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| | | ->07.67% (46B) 0x402D20: main (main.cpp:84)
+| | | | 
+| | | ->04.67% (28B) 0x402D31: main (main.cpp:85)
+| | |   
+| | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->04.33% (26B) 0x40405E: char* std::string::_S_construct<char*>(char*, char*, std::allocator<char> const&, std::forward_iterator_tag) (basic_string.tcc:578)
+|   ->04.33% (26B) 0x403F77: char* std::string::_S_construct_aux<char*>(char*, char*, std::allocator<char> const&, std::__false_type) (basic_string.h:5052)
+|     ->04.33% (26B) 0x403F49: char* std::string::_S_construct<char*>(char*, char*, std::allocator<char> const&) (basic_string.h:5073)
+|       ->04.33% (26B) 0x403EF3: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<char*>(char*, char*, std::allocator<char> const&) (basic_string.tcc:679)
+|         ->04.33% (26B) 0x403E32: std::string __gnu_cxx::__to_xstring<std::string, char>(int (*)(char*, unsigned long, char const*, __va_list_tag*), unsigned long, char const*, ...) (string_conversions.h:115)
+|           ->04.33% (26B) 0x403B90: std::to_string(int) (basic_string.h:6455)
+|             ->04.33% (26B) 0x40394A: compressRLE(std::string const&) (rle.cpp:12)
+|               ->04.33% (26B) 0x402816: benchmarkCompression(std::string const&, std::string const&) (main.cpp:42)
+|                 ->04.33% (26B) 0x402DE1: main (main.cpp:98)
+|                   
+->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 38      1,743,638              600              531            69            0
+ 39      1,749,262              600              531            69            0
+ 40      1,754,886              600              531            69            0
+ 41      1,760,510              600              531            69            0
+ 42      1,763,781              560              505            55            0
+ 43      1,768,901              600              531            69            0
+ 44      1,774,098              640              557            83            0
+ 45      1,778,688              712              605           107            0
+84.97% (605B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->84.97% (605B) 0x4EEACD8: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| ->49.86% (355B) 0x4EEB8EA: std::string::_Rep::_M_clone(std::allocator<char> const&, unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->49.86% (355B) 0x4EEB993: std::string::reserve(unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| |   ->39.47% (281B) 0x4EEBA57: std::string::append(std::string const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| |   | ->39.47% (281B) 0x403988: compressRLE(std::string const&) (rle.cpp:12)
+| |   |   ->39.47% (281B) 0x402816: benchmarkCompression(std::string const&, std::string const&) (main.cpp:42)
+| |   |     ->39.47% (281B) 0x402DE1: main (main.cpp:98)
+| |   |       
+| |   ->10.39% (74B) 0x4EEBD75: std::string::append(unsigned long, char) (in /usr/lib64/libstdc++.so.6.0.19)
+| |     ->10.39% (74B) 0x403AB3: decompressRLE(std::string const&) (rle.cpp:20)
+| |       ->10.39% (74B) 0x402884: benchmarkCompression(std::string const&, std::string const&) (main.cpp:47)
+| |         ->10.39% (74B) 0x402DE1: main (main.cpp:98)
+| |           
+| ->21.07% (150B) 0x409668: char* std::string::_S_construct<std::istreambuf_iterator<char, std::char_traits<char> > >(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::allocator<char> const&, std::input_iterator_tag) (basic_string.tcc:533)
+| | ->21.07% (150B) 0x40951C: char* std::string::_S_construct_aux<std::istreambuf_iterator<char, std::char_traits<char> > >(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::allocator<char> const&, std::__false_type) (basic_string.h:5052)
+| |   ->21.07% (150B) 0x4094CC: char* std::string::_S_construct<std::istreambuf_iterator<char, std::char_traits<char> > >(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::allocator<char> const&) (basic_string.h:5073)
+| |     ->21.07% (150B) 0x409462: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<std::istreambuf_iterator<char, std::char_traits<char> > >(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::allocator<char> const&) (basic_string.tcc:679)
+| |       ->21.07% (150B) 0x4091B8: readTextFile(std::string const&) (file_io.cpp:11)
+| |         ->21.07% (150B) 0x402DBF: main (main.cpp:95)
+| |           
+| ->10.39% (74B) 0x4EEAE95: std::string::_M_mutate(unsigned long, unsigned long, unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->10.39% (74B) 0x4EEB45D: std::string::_M_replace_safe(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| | | ->06.46% (46B) 0x402D20: main (main.cpp:84)
+| | | | 
+| | | ->03.93% (28B) 0x402D31: main (main.cpp:85)
+| | |   
+| | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->03.65% (26B) 0x4EEAD29: std::string::_S_construct(unsigned long, char, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->03.65% (26B) 0x4EEADA4: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(unsigned long, char, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| |   ->03.65% (26B) 0x403A89: decompressRLE(std::string const&) (rle.cpp:20)
+| |     ->03.65% (26B) 0x402884: benchmarkCompression(std::string const&, std::string const&) (main.cpp:47)
+| |       ->03.65% (26B) 0x402DE1: main (main.cpp:98)
+| |         
+| ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 46      1,783,496              632              562            70            0
+ 47      1,786,961              632              562            70            0
+ 48      1,793,694              704              620            84            0
+ 49      1,800,624              704              620            84            0
+ 50      1,802,484              664              594            70            0
+ 51      1,804,089              704              620            84            0
+ 52      1,805,949              664              594            70            0
+ 53      1,807,616              728              658            70            0
+ 54      1,809,221              768              684            84            0
+ 55      1,811,081              728              658            70            0
+ 56      1,812,686              768              684            84            0
+89.06% (684B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->89.06% (684B) 0x4EEACD8: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| ->56.51% (434B) 0x4EEB8EA: std::string::_Rep::_M_clone(std::allocator<char> const&, unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->56.51% (434B) 0x4EEB993: std::string::reserve(unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| |   ->36.59% (281B) 0x4EEBA57: std::string::append(std::string const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| |   | ->36.59% (281B) 0x403988: compressRLE(std::string const&) (rle.cpp:12)
+| |   |   ->36.59% (281B) 0x402816: benchmarkCompression(std::string const&, std::string const&) (main.cpp:42)
+| |   |     ->36.59% (281B) 0x402DE1: main (main.cpp:98)
+| |   |       
+| |   ->19.92% (153B) 0x4EEBD75: std::string::append(unsigned long, char) (in /usr/lib64/libstdc++.so.6.0.19)
+| |     ->19.92% (153B) 0x403AB3: decompressRLE(std::string const&) (rle.cpp:20)
+| |       ->19.92% (153B) 0x402884: benchmarkCompression(std::string const&, std::string const&) (main.cpp:47)
+| |         ->19.92% (153B) 0x402DE1: main (main.cpp:98)
+| |           
+| ->19.53% (150B) 0x409668: char* std::string::_S_construct<std::istreambuf_iterator<char, std::char_traits<char> > >(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::allocator<char> const&, std::input_iterator_tag) (basic_string.tcc:533)
+| | ->19.53% (150B) 0x40951C: char* std::string::_S_construct_aux<std::istreambuf_iterator<char, std::char_traits<char> > >(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::allocator<char> const&, std::__false_type) (basic_string.h:5052)
+| |   ->19.53% (150B) 0x4094CC: char* std::string::_S_construct<std::istreambuf_iterator<char, std::char_traits<char> > >(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::allocator<char> const&) (basic_string.h:5073)
+| |     ->19.53% (150B) 0x409462: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<std::istreambuf_iterator<char, std::char_traits<char> > >(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::allocator<char> const&) (basic_string.tcc:679)
+| |       ->19.53% (150B) 0x4091B8: readTextFile(std::string const&) (file_io.cpp:11)
+| |         ->19.53% (150B) 0x402DBF: main (main.cpp:95)
+| |           
+| ->09.64% (74B) 0x4EEAE95: std::string::_M_mutate(unsigned long, unsigned long, unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->09.64% (74B) 0x4EEB45D: std::string::_M_replace_safe(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| | | ->05.99% (46B) 0x402D20: main (main.cpp:84)
+| | | | 
+| | | ->03.65% (28B) 0x402D31: main (main.cpp:85)
+| | |   
+| | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->03.39% (26B) 0x4EEAD29: std::string::_S_construct(unsigned long, char, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->03.39% (26B) 0x4EEADA4: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(unsigned long, char, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| |   ->03.39% (26B) 0x403A89: decompressRLE(std::string const&) (rle.cpp:20)
+| |     ->03.39% (26B) 0x402884: benchmarkCompression(std::string const&, std::string const&) (main.cpp:47)
+| |       ->03.39% (26B) 0x402DE1: main (main.cpp:98)
+| |         
+| ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 57      1,814,546              728              658            70            0
+ 58      1,816,151              768              684            84            0
+ 59      1,818,011              728              658            70            0
+ 60      1,819,616              768              684            84            0
+ 61      1,821,476              728              658            70            0
+ 62      1,823,081              768              684            84            0
+ 63      1,824,941              728              658            70            0
+ 64      1,826,546              768              684            84            0
+ 65      1,828,406              728              658            70            0
+ 66      1,830,011              768              684            84            0
+89.06% (684B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->89.06% (684B) 0x4EEACD8: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| ->56.51% (434B) 0x4EEB8EA: std::string::_Rep::_M_clone(std::allocator<char> const&, unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->56.51% (434B) 0x4EEB993: std::string::reserve(unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| |   ->36.59% (281B) 0x4EEBA57: std::string::append(std::string const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| |   | ->36.59% (281B) 0x403988: compressRLE(std::string const&) (rle.cpp:12)
+| |   |   ->36.59% (281B) 0x402816: benchmarkCompression(std::string const&, std::string const&) (main.cpp:42)
+| |   |     ->36.59% (281B) 0x402DE1: main (main.cpp:98)
+| |   |       
+| |   ->19.92% (153B) 0x4EEBD75: std::string::append(unsigned long, char) (in /usr/lib64/libstdc++.so.6.0.19)
+| |     ->19.92% (153B) 0x403AB3: decompressRLE(std::string const&) (rle.cpp:20)
+| |       ->19.92% (153B) 0x402884: benchmarkCompression(std::string const&, std::string const&) (main.cpp:47)
+| |         ->19.92% (153B) 0x402DE1: main (main.cpp:98)
+| |           
+| ->19.53% (150B) 0x409668: char* std::string::_S_construct<std::istreambuf_iterator<char, std::char_traits<char> > >(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::allocator<char> const&, std::input_iterator_tag) (basic_string.tcc:533)
+| | ->19.53% (150B) 0x40951C: char* std::string::_S_construct_aux<std::istreambuf_iterator<char, std::char_traits<char> > >(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::allocator<char> const&, std::__false_type) (basic_string.h:5052)
+| |   ->19.53% (150B) 0x4094CC: char* std::string::_S_construct<std::istreambuf_iterator<char, std::char_traits<char> > >(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::allocator<char> const&) (basic_string.h:5073)
+| |     ->19.53% (150B) 0x409462: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<std::istreambuf_iterator<char, std::char_traits<char> > >(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::allocator<char> const&) (basic_string.tcc:679)
+| |       ->19.53% (150B) 0x4091B8: readTextFile(std::string const&) (file_io.cpp:11)
+| |         ->19.53% (150B) 0x402DBF: main (main.cpp:95)
+| |           
+| ->09.64% (74B) 0x4EEAE95: std::string::_M_mutate(unsigned long, unsigned long, unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->09.64% (74B) 0x4EEB45D: std::string::_M_replace_safe(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| | | ->05.99% (46B) 0x402D20: main (main.cpp:84)
+| | | | 
+| | | ->03.65% (28B) 0x402D31: main (main.cpp:85)
+| | |   
+| | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->03.39% (26B) 0x4EEAD29: std::string::_S_construct(unsigned long, char, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->03.39% (26B) 0x4EEADA4: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(unsigned long, char, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| |   ->03.39% (26B) 0x403A89: decompressRLE(std::string const&) (rle.cpp:20)
+| |     ->03.39% (26B) 0x402884: benchmarkCompression(std::string const&, std::string const&) (main.cpp:47)
+| |       ->03.39% (26B) 0x402DE1: main (main.cpp:98)
+| |         
+| ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 67      1,831,871              728              658            70            0
+ 68      1,833,476              768              684            84            0
+ 69      1,835,336              728              658            70            0
+ 70      1,853,146              560              505            55            0

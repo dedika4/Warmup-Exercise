@@ -1,0 +1,912 @@
+--------------------------------------------------------------------------------
+Command:            ./compressor Texts/lorem_ipsum.txt LZW
+Massif arguments:   --massif-out-file=massif.out
+ms_print arguments: massif.out
+--------------------------------------------------------------------------------
+
+
+    KB
+34.16^                                                                      # 
+     |                                               @@                   @:# 
+     |                                             @@@@                  :@:# 
+     |                                           :@@@@@                @::@:# 
+     |                                         @::@@@@@              ::@::@:# 
+     |                                       @:@::@@@@@             @::@::@:# 
+     |                                      :@:@::@@@@@:           :@::@::@:# 
+     |                                    :::@:@::@@@@@:          ::@::@::@:# 
+     |                                   :: :@:@::@@@@@:         @::@::@::@:# 
+     |                                   @: :@:@::@@@@@:         @::@::@::@:# 
+     |                                 @@@: :@:@::@@@@@:        :@::@::@::@:# 
+     |                                 @ @: :@:@::@@@@@:       @:@::@::@::@:#:
+     |                               ::@ @: :@:@::@@@@@:      :@:@::@::@::@:#:
+     |                              :::@ @: :@:@::@@@@@:      :@:@::@::@::@:#:
+     |                             @:::@ @: :@:@::@@@@@:    :::@:@::@::@::@:#:
+     |                      :::   :@:::@ @: :@:@::@@@@@:    @ :@:@::@::@::@:#:
+     |                      : :   :@:::@ @: :@:@::@@@@@:    @ :@:@::@::@::@:#:
+     |                      : :  ::@:::@ @: :@:@::@@@@@:  ::@ :@:@::@::@::@:#:
+     |                      : : :::@:::@ @: :@:@::@@@@@: :: @ :@:@::@::@::@:#:
+     |                      : :::::@:::@ @: :@:@::@@@@@: :: @ :@:@::@::@::@:#:
+   0 +----------------------------------------------------------------------->Mi
+     0                                                                   4.408
+
+Number of snapshots: 72
+ Detailed snapshots: [10, 15, 16, 20, 23, 26, 28, 29, 30, 31, 36, 39, 42, 46, 50, 60, 65 (peak)]
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+  0              0                0                0             0            0
+  1      1,455,396               56               46            10            0
+  2      1,473,527            8,880            8,834            46            0
+  3      1,551,178            9,048            8,984            64            0
+  4      1,610,031            1,456            1,138           318            0
+  5      1,646,157            2,800            2,174           626            0
+  6      1,704,082            4,776            3,702         1,074            0
+  7      1,751,854            6,312            4,886         1,426            0
+  8      1,801,720            7,848            6,070         1,778            0
+  9      1,858,191            9,576            7,402         2,174            0
+ 10      1,903,761           10,920            8,438         2,482            0
+77.27% (8,438B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->48.79% (5,328B) 0x408794: __gnu_cxx::new_allocator<std::_Rb_tree_node<std::pair<std::string const, int> > >::allocate(unsigned long, void const*) (new_allocator.h:111)
+| ->48.79% (5,328B) 0x4082A4: std::allocator_traits<std::allocator<std::_Rb_tree_node<std::pair<std::string const, int> > > >::allocate(std::allocator<std::_Rb_tree_node<std::pair<std::string const, int> > >&, unsigned long) (alloc_traits.h:436)
+|   ->48.79% (5,328B) 0x4075D8: std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_get_node() (stl_tree.h:599)
+|     ->48.79% (5,328B) 0x4060DC: std::_Rb_tree_node<std::pair<std::string const, int> >* std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_create_node<std::piecewise_construct_t const&, std::tuple<std::string&&>, std::tuple<> >(std::piecewise_construct_t const&, std::tuple<std::string&&>&&, std::tuple<>&&) (stl_tree.h:653)
+|       ->48.79% (5,328B) 0x405383: std::_Rb_tree_iterator<std::pair<std::string const, int> > std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<std::string&&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<std::string const, int> >, std::piecewise_construct_t const&, std::tuple<std::string&&>&&, std::tuple<>&&) (stl_tree.h:2414)
+|         ->48.79% (5,328B) 0x404AF9: std::map<std::string, int, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::operator[](std::string&&) (stl_map.h:518)
+|           ->48.79% (5,328B) 0x404190: compressLZW(std::string const&) (lzw.cpp:7)
+|             ->48.79% (5,328B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+|               ->48.79% (5,328B) 0x402DE1: main (main.cpp:98)
+|                 
+->28.48% (3,110B) 0x4EEACD8: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| ->26.43% (2,886B) 0x4EEAD29: std::string::_S_construct(unsigned long, char, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->26.43% (2,886B) 0x405F45: char* std::string::_S_construct_aux<int>(int, int, std::allocator<char> const&, std::__true_type) (basic_string.h:5061)
+| |   ->26.43% (2,886B) 0x4051DE: char* std::string::_S_construct<int>(int, int, std::allocator<char> const&) (basic_string.h:5073)
+| |     ->26.43% (2,886B) 0x4049F3: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<int>(int, int, std::allocator<char> const&) (basic_string.tcc:679)
+| |       ->26.43% (2,886B) 0x40417D: compressLZW(std::string const&) (lzw.cpp:7)
+| |         ->26.43% (2,886B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+| |           ->26.43% (2,886B) 0x402DE1: main (main.cpp:98)
+| |             
+| ->01.37% (150B) 0x409668: char* std::string::_S_construct<std::istreambuf_iterator<char, std::char_traits<char> > >(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::allocator<char> const&, std::input_iterator_tag) (basic_string.tcc:533)
+| | ->01.37% (150B) 0x40951C: char* std::string::_S_construct_aux<std::istreambuf_iterator<char, std::char_traits<char> > >(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::allocator<char> const&, std::__false_type) (basic_string.h:5052)
+| |   ->01.37% (150B) 0x4094CC: char* std::string::_S_construct<std::istreambuf_iterator<char, std::char_traits<char> > >(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::allocator<char> const&) (basic_string.h:5073)
+| |     ->01.37% (150B) 0x409462: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<std::istreambuf_iterator<char, std::char_traits<char> > >(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::allocator<char> const&) (basic_string.tcc:679)
+| |       ->01.37% (150B) 0x4091B8: readTextFile(std::string const&) (file_io.cpp:11)
+| |         ->01.37% (150B) 0x402DBF: main (main.cpp:95)
+| |           
+| ->00.68% (74B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 11      1,955,936           12,456            9,622         2,834            0
+ 12      2,013,560           14,088           10,880         3,208            0
+ 13      2,064,458           15,528           11,990         3,538            0
+ 14      2,118,711           17,064           13,174         3,890            0
+ 15      2,173,094           18,600           14,358         4,242            0
+77.19% (14,358B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->49.29% (9,168B) 0x408794: __gnu_cxx::new_allocator<std::_Rb_tree_node<std::pair<std::string const, int> > >::allocate(unsigned long, void const*) (new_allocator.h:111)
+| ->49.29% (9,168B) 0x4082A4: std::allocator_traits<std::allocator<std::_Rb_tree_node<std::pair<std::string const, int> > > >::allocate(std::allocator<std::_Rb_tree_node<std::pair<std::string const, int> > >&, unsigned long) (alloc_traits.h:436)
+|   ->49.29% (9,168B) 0x4075D8: std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_get_node() (stl_tree.h:599)
+|     ->49.29% (9,168B) 0x4060DC: std::_Rb_tree_node<std::pair<std::string const, int> >* std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_create_node<std::piecewise_construct_t const&, std::tuple<std::string&&>, std::tuple<> >(std::piecewise_construct_t const&, std::tuple<std::string&&>&&, std::tuple<>&&) (stl_tree.h:653)
+|       ->49.29% (9,168B) 0x405383: std::_Rb_tree_iterator<std::pair<std::string const, int> > std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<std::string&&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<std::string const, int> >, std::piecewise_construct_t const&, std::tuple<std::string&&>&&, std::tuple<>&&) (stl_tree.h:2414)
+|         ->49.29% (9,168B) 0x404AF9: std::map<std::string, int, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::operator[](std::string&&) (stl_map.h:518)
+|           ->49.29% (9,168B) 0x404190: compressLZW(std::string const&) (lzw.cpp:7)
+|             ->49.29% (9,168B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+|               ->49.29% (9,168B) 0x402DE1: main (main.cpp:98)
+|                 
+->27.90% (5,190B) 0x4EEACD8: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| ->26.70% (4,966B) 0x4EEAD29: std::string::_S_construct(unsigned long, char, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->26.70% (4,966B) 0x405F45: char* std::string::_S_construct_aux<int>(int, int, std::allocator<char> const&, std::__true_type) (basic_string.h:5061)
+| |   ->26.70% (4,966B) 0x4051DE: char* std::string::_S_construct<int>(int, int, std::allocator<char> const&) (basic_string.h:5073)
+| |     ->26.70% (4,966B) 0x4049F3: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<int>(int, int, std::allocator<char> const&) (basic_string.tcc:679)
+| |       ->26.70% (4,966B) 0x40417D: compressLZW(std::string const&) (lzw.cpp:7)
+| |         ->26.70% (4,966B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+| |           ->26.70% (4,966B) 0x402DE1: main (main.cpp:98)
+| |             
+| ->01.20% (224B) in 2 places, all below massif's threshold (1.00%)
+|   
+->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 16      2,257,752           20,904           16,134         4,770            0
+77.18% (16,134B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->49.37% (10,320B) 0x408794: __gnu_cxx::new_allocator<std::_Rb_tree_node<std::pair<std::string const, int> > >::allocate(unsigned long, void const*) (new_allocator.h:111)
+| ->49.37% (10,320B) 0x4082A4: std::allocator_traits<std::allocator<std::_Rb_tree_node<std::pair<std::string const, int> > > >::allocate(std::allocator<std::_Rb_tree_node<std::pair<std::string const, int> > >&, unsigned long) (alloc_traits.h:436)
+|   ->49.37% (10,320B) 0x4075D8: std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_get_node() (stl_tree.h:599)
+|     ->49.37% (10,320B) 0x4060DC: std::_Rb_tree_node<std::pair<std::string const, int> >* std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_create_node<std::piecewise_construct_t const&, std::tuple<std::string&&>, std::tuple<> >(std::piecewise_construct_t const&, std::tuple<std::string&&>&&, std::tuple<>&&) (stl_tree.h:653)
+|       ->49.37% (10,320B) 0x405383: std::_Rb_tree_iterator<std::pair<std::string const, int> > std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<std::string&&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<std::string const, int> >, std::piecewise_construct_t const&, std::tuple<std::string&&>&&, std::tuple<>&&) (stl_tree.h:2414)
+|         ->49.37% (10,320B) 0x404AF9: std::map<std::string, int, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::operator[](std::string&&) (stl_map.h:518)
+|           ->49.37% (10,320B) 0x404190: compressLZW(std::string const&) (lzw.cpp:7)
+|             ->49.37% (10,320B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+|               ->49.37% (10,320B) 0x402DE1: main (main.cpp:98)
+|                 
+->27.81% (5,814B) 0x4EEACD8: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| ->26.74% (5,590B) 0x4EEAD29: std::string::_S_construct(unsigned long, char, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->26.74% (5,590B) 0x405F45: char* std::string::_S_construct_aux<int>(int, int, std::allocator<char> const&, std::__true_type) (basic_string.h:5061)
+| |   ->26.74% (5,590B) 0x4051DE: char* std::string::_S_construct<int>(int, int, std::allocator<char> const&) (basic_string.h:5073)
+| |     ->26.74% (5,590B) 0x4049F3: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<int>(int, int, std::allocator<char> const&) (basic_string.tcc:679)
+| |       ->26.74% (5,590B) 0x40417D: compressLZW(std::string const&) (lzw.cpp:7)
+| |         ->26.74% (5,590B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+| |           ->26.74% (5,590B) 0x402DE1: main (main.cpp:98)
+| |             
+| ->01.07% (224B) in 2 places, all below massif's threshold (1.00%)
+|   
+->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 17      2,310,647           22,344           17,244         5,100            0
+ 18      2,374,169           24,072           18,576         5,496            0
+ 19      2,461,154           25,496           19,676         5,820            0
+ 20      2,510,813           26,240           20,261         5,979            0
+77.21% (20,261B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->49.21% (12,912B) 0x408794: __gnu_cxx::new_allocator<std::_Rb_tree_node<std::pair<std::string const, int> > >::allocate(unsigned long, void const*) (new_allocator.h:111)
+| ->49.21% (12,912B) 0x4082A4: std::allocator_traits<std::allocator<std::_Rb_tree_node<std::pair<std::string const, int> > > >::allocate(std::allocator<std::_Rb_tree_node<std::pair<std::string const, int> > >&, unsigned long) (alloc_traits.h:436)
+|   ->49.21% (12,912B) 0x4075D8: std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_get_node() (stl_tree.h:599)
+|     ->46.83% (12,288B) 0x4060DC: std::_Rb_tree_node<std::pair<std::string const, int> >* std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_create_node<std::piecewise_construct_t const&, std::tuple<std::string&&>, std::tuple<> >(std::piecewise_construct_t const&, std::tuple<std::string&&>&&, std::tuple<>&&) (stl_tree.h:653)
+|     | ->46.83% (12,288B) 0x405383: std::_Rb_tree_iterator<std::pair<std::string const, int> > std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<std::string&&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<std::string const, int> >, std::piecewise_construct_t const&, std::tuple<std::string&&>&&, std::tuple<>&&) (stl_tree.h:2414)
+|     |   ->46.83% (12,288B) 0x404AF9: std::map<std::string, int, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::operator[](std::string&&) (stl_map.h:518)
+|     |     ->46.83% (12,288B) 0x404190: compressLZW(std::string const&) (lzw.cpp:7)
+|     |       ->46.83% (12,288B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+|     |         ->46.83% (12,288B) 0x402DE1: main (main.cpp:98)
+|     |           
+|     ->02.38% (624B) 0x40682A: std::_Rb_tree_node<std::pair<std::string const, int> >* std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_create_node<std::piecewise_construct_t const&, std::tuple<std::string const&>, std::tuple<> >(std::piecewise_construct_t const&, std::tuple<std::string const&>&&, std::tuple<>&&) (stl_tree.h:653)
+|       ->02.38% (624B) 0x4055E7: std::_Rb_tree_iterator<std::pair<std::string const, int> > std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<std::string const&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<std::string const, int> >, std::piecewise_construct_t const&, std::tuple<std::string const&>&&, std::tuple<>&&) (stl_tree.h:2414)
+|         ->02.38% (624B) 0x404D3C: std::map<std::string, int, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::operator[](std::string const&) (stl_map.h:499)
+|           ->02.38% (624B) 0x4042D1: compressLZW(std::string const&) (lzw.cpp:18)
+|             ->02.38% (624B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+|               ->02.38% (624B) 0x402DE1: main (main.cpp:98)
+|                 
+->27.76% (7,285B) 0x4EEACD8: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| ->25.56% (6,708B) 0x4EEAD29: std::string::_S_construct(unsigned long, char, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->25.37% (6,656B) 0x405F45: char* std::string::_S_construct_aux<int>(int, int, std::allocator<char> const&, std::__true_type) (basic_string.h:5061)
+| | | ->25.37% (6,656B) 0x4051DE: char* std::string::_S_construct<int>(int, int, std::allocator<char> const&) (basic_string.h:5073)
+| | |   ->25.37% (6,656B) 0x4049F3: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<int>(int, int, std::allocator<char> const&) (basic_string.tcc:679)
+| | |     ->25.37% (6,656B) 0x40417D: compressLZW(std::string const&) (lzw.cpp:7)
+| | |       ->25.37% (6,656B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+| | |         ->25.37% (6,656B) 0x402DE1: main (main.cpp:98)
+| | |           
+| | ->00.20% (52B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->01.35% (353B) 0x4EEB8EA: std::string::_Rep::_M_clone(std::allocator<char> const&, unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->01.35% (353B) 0x4EEB993: std::string::reserve(unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| |   ->01.35% (353B) 0x4EEBD75: std::string::append(unsigned long, char) (in /usr/lib64/libstdc++.so.6.0.19)
+| |     ->01.35% (353B) 0x404BDC: std::basic_string<char, std::char_traits<char>, std::allocator<char> > std::operator+<char, std::char_traits<char>, std::allocator<char> >(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, char) (basic_string.h:5985)
+| |       ->01.35% (353B) 0x404249: compressLZW(std::string const&) (lzw.cpp:13)
+| |         ->01.35% (353B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+| |           ->01.35% (353B) 0x402DE1: main (main.cpp:98)
+| |             
+| ->00.85% (224B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->00.24% (64B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 21      2,578,580           27,240           21,051         6,189            0
+ 22      2,638,895           28,104           21,726         6,378            0
+ 23      2,680,609           28,768           22,260         6,508            0
+77.38% (22,260B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->48.89% (14,064B) 0x408794: __gnu_cxx::new_allocator<std::_Rb_tree_node<std::pair<std::string const, int> > >::allocate(unsigned long, void const*) (new_allocator.h:111)
+| ->48.89% (14,064B) 0x4082A4: std::allocator_traits<std::allocator<std::_Rb_tree_node<std::pair<std::string const, int> > > >::allocate(std::allocator<std::_Rb_tree_node<std::pair<std::string const, int> > >&, unsigned long) (alloc_traits.h:436)
+|   ->48.89% (14,064B) 0x4075D8: std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_get_node() (stl_tree.h:599)
+|     ->42.71% (12,288B) 0x4060DC: std::_Rb_tree_node<std::pair<std::string const, int> >* std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_create_node<std::piecewise_construct_t const&, std::tuple<std::string&&>, std::tuple<> >(std::piecewise_construct_t const&, std::tuple<std::string&&>&&, std::tuple<>&&) (stl_tree.h:653)
+|     | ->42.71% (12,288B) 0x405383: std::_Rb_tree_iterator<std::pair<std::string const, int> > std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<std::string&&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<std::string const, int> >, std::piecewise_construct_t const&, std::tuple<std::string&&>&&, std::tuple<>&&) (stl_tree.h:2414)
+|     |   ->42.71% (12,288B) 0x404AF9: std::map<std::string, int, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::operator[](std::string&&) (stl_map.h:518)
+|     |     ->42.71% (12,288B) 0x404190: compressLZW(std::string const&) (lzw.cpp:7)
+|     |       ->42.71% (12,288B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+|     |         ->42.71% (12,288B) 0x402DE1: main (main.cpp:98)
+|     |           
+|     ->06.17% (1,776B) 0x40682A: std::_Rb_tree_node<std::pair<std::string const, int> >* std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_create_node<std::piecewise_construct_t const&, std::tuple<std::string const&>, std::tuple<> >(std::piecewise_construct_t const&, std::tuple<std::string const&>&&, std::tuple<>&&) (stl_tree.h:653)
+|       ->06.17% (1,776B) 0x4055E7: std::_Rb_tree_iterator<std::pair<std::string const, int> > std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<std::string const&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<std::string const, int> >, std::piecewise_construct_t const&, std::tuple<std::string const&>&&, std::tuple<>&&) (stl_tree.h:2414)
+|         ->06.17% (1,776B) 0x404D3C: std::map<std::string, int, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::operator[](std::string const&) (stl_map.h:499)
+|           ->06.17% (1,776B) 0x4042D1: compressLZW(std::string const&) (lzw.cpp:18)
+|             ->06.17% (1,776B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+|               ->06.17% (1,776B) 0x402DE1: main (main.cpp:98)
+|                 
+->27.60% (7,940B) 0x4EEACD8: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| ->23.23% (6,682B) 0x4EEAD29: std::string::_S_construct(unsigned long, char, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->23.14% (6,656B) 0x405F45: char* std::string::_S_construct_aux<int>(int, int, std::allocator<char> const&, std::__true_type) (basic_string.h:5061)
+| | | ->23.14% (6,656B) 0x4051DE: char* std::string::_S_construct<int>(int, int, std::allocator<char> const&) (basic_string.h:5073)
+| | |   ->23.14% (6,656B) 0x4049F3: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<int>(int, int, std::allocator<char> const&) (basic_string.tcc:679)
+| | |     ->23.14% (6,656B) 0x40417D: compressLZW(std::string const&) (lzw.cpp:7)
+| | |       ->23.14% (6,656B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+| | |         ->23.14% (6,656B) 0x402DE1: main (main.cpp:98)
+| | |           
+| | ->00.09% (26B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->03.59% (1,034B) 0x4EEB8EA: std::string::_Rep::_M_clone(std::allocator<char> const&, unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->03.59% (1,034B) 0x4EEB993: std::string::reserve(unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| |   ->03.59% (1,034B) 0x4EEBD75: std::string::append(unsigned long, char) (in /usr/lib64/libstdc++.so.6.0.19)
+| |     ->03.59% (1,034B) 0x404BDC: std::basic_string<char, std::char_traits<char>, std::allocator<char> > std::operator+<char, std::char_traits<char>, std::allocator<char> >(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, char) (basic_string.h:5985)
+| |       ->03.59% (1,034B) 0x404249: compressLZW(std::string const&) (lzw.cpp:13)
+| |         ->03.59% (1,034B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+| |           ->03.59% (1,034B) 0x402DE1: main (main.cpp:98)
+| |             
+| ->00.78% (224B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->00.89% (256B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 24      2,744,158           29,592           22,910         6,682            0
+ 25      2,790,650           30,168           23,366         6,802            0
+ 26      2,852,485           30,976           23,996         6,980            0
+77.47% (23,996B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->48.97% (15,168B) 0x408794: __gnu_cxx::new_allocator<std::_Rb_tree_node<std::pair<std::string const, int> > >::allocate(unsigned long, void const*) (new_allocator.h:111)
+| ->48.97% (15,168B) 0x4082A4: std::allocator_traits<std::allocator<std::_Rb_tree_node<std::pair<std::string const, int> > > >::allocate(std::allocator<std::_Rb_tree_node<std::pair<std::string const, int> > >&, unsigned long) (alloc_traits.h:436)
+|   ->48.97% (15,168B) 0x4075D8: std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_get_node() (stl_tree.h:599)
+|     ->39.67% (12,288B) 0x4060DC: std::_Rb_tree_node<std::pair<std::string const, int> >* std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_create_node<std::piecewise_construct_t const&, std::tuple<std::string&&>, std::tuple<> >(std::piecewise_construct_t const&, std::tuple<std::string&&>&&, std::tuple<>&&) (stl_tree.h:653)
+|     | ->39.67% (12,288B) 0x405383: std::_Rb_tree_iterator<std::pair<std::string const, int> > std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<std::string&&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<std::string const, int> >, std::piecewise_construct_t const&, std::tuple<std::string&&>&&, std::tuple<>&&) (stl_tree.h:2414)
+|     |   ->39.67% (12,288B) 0x404AF9: std::map<std::string, int, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::operator[](std::string&&) (stl_map.h:518)
+|     |     ->39.67% (12,288B) 0x404190: compressLZW(std::string const&) (lzw.cpp:7)
+|     |       ->39.67% (12,288B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+|     |         ->39.67% (12,288B) 0x402DE1: main (main.cpp:98)
+|     |           
+|     ->09.30% (2,880B) 0x40682A: std::_Rb_tree_node<std::pair<std::string const, int> >* std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_create_node<std::piecewise_construct_t const&, std::tuple<std::string const&>, std::tuple<> >(std::piecewise_construct_t const&, std::tuple<std::string const&>&&, std::tuple<>&&) (stl_tree.h:653)
+|       ->09.30% (2,880B) 0x4055E7: std::_Rb_tree_iterator<std::pair<std::string const, int> > std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<std::string const&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<std::string const, int> >, std::piecewise_construct_t const&, std::tuple<std::string const&>&&, std::tuple<>&&) (stl_tree.h:2414)
+|         ->09.30% (2,880B) 0x404D3C: std::map<std::string, int, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::operator[](std::string const&) (stl_map.h:499)
+|           ->09.30% (2,880B) 0x4042D1: compressLZW(std::string const&) (lzw.cpp:18)
+|             ->09.30% (2,880B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+|               ->09.30% (2,880B) 0x402DE1: main (main.cpp:98)
+|                 
+->27.67% (8,572B) 0x4EEACD8: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| ->21.66% (6,708B) 0x4EEAD29: std::string::_S_construct(unsigned long, char, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->21.49% (6,656B) 0x405F45: char* std::string::_S_construct_aux<int>(int, int, std::allocator<char> const&, std::__true_type) (basic_string.h:5061)
+| | | ->21.49% (6,656B) 0x4051DE: char* std::string::_S_construct<int>(int, int, std::allocator<char> const&) (basic_string.h:5073)
+| | |   ->21.49% (6,656B) 0x4049F3: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<int>(int, int, std::allocator<char> const&) (basic_string.tcc:679)
+| | |     ->21.49% (6,656B) 0x40417D: compressLZW(std::string const&) (lzw.cpp:7)
+| | |       ->21.49% (6,656B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+| | |         ->21.49% (6,656B) 0x402DE1: main (main.cpp:98)
+| | |           
+| | ->00.17% (52B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->05.29% (1,640B) 0x4EEB8EA: std::string::_Rep::_M_clone(std::allocator<char> const&, unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->05.29% (1,640B) 0x4EEB993: std::string::reserve(unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| |   ->05.29% (1,640B) 0x4EEBD75: std::string::append(unsigned long, char) (in /usr/lib64/libstdc++.so.6.0.19)
+| |     ->05.29% (1,640B) 0x404BDC: std::basic_string<char, std::char_traits<char>, std::allocator<char> > std::operator+<char, std::char_traits<char>, std::allocator<char> >(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, char) (basic_string.h:5985)
+| |       ->05.29% (1,640B) 0x404249: compressLZW(std::string const&) (lzw.cpp:13)
+| |         ->05.29% (1,640B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+| |           ->05.29% (1,640B) 0x402DE1: main (main.cpp:98)
+| |             
+| ->00.72% (224B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->00.83% (256B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 27      2,907,576           31,808           24,711         7,097            0
+ 28      2,948,297           32,288           25,089         7,199            0
+77.70% (25,089B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->48.61% (15,696B) 0x408794: __gnu_cxx::new_allocator<std::_Rb_tree_node<std::pair<std::string const, int> > >::allocate(unsigned long, void const*) (new_allocator.h:111)
+| ->48.61% (15,696B) 0x4082A4: std::allocator_traits<std::allocator<std::_Rb_tree_node<std::pair<std::string const, int> > > >::allocate(std::allocator<std::_Rb_tree_node<std::pair<std::string const, int> > >&, unsigned long) (alloc_traits.h:436)
+|   ->48.61% (15,696B) 0x4075D8: std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_get_node() (stl_tree.h:599)
+|     ->38.06% (12,288B) 0x4060DC: std::_Rb_tree_node<std::pair<std::string const, int> >* std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_create_node<std::piecewise_construct_t const&, std::tuple<std::string&&>, std::tuple<> >(std::piecewise_construct_t const&, std::tuple<std::string&&>&&, std::tuple<>&&) (stl_tree.h:653)
+|     | ->38.06% (12,288B) 0x405383: std::_Rb_tree_iterator<std::pair<std::string const, int> > std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<std::string&&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<std::string const, int> >, std::piecewise_construct_t const&, std::tuple<std::string&&>&&, std::tuple<>&&) (stl_tree.h:2414)
+|     |   ->38.06% (12,288B) 0x404AF9: std::map<std::string, int, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::operator[](std::string&&) (stl_map.h:518)
+|     |     ->38.06% (12,288B) 0x404190: compressLZW(std::string const&) (lzw.cpp:7)
+|     |       ->38.06% (12,288B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+|     |         ->38.06% (12,288B) 0x402DE1: main (main.cpp:98)
+|     |           
+|     ->10.56% (3,408B) 0x40682A: std::_Rb_tree_node<std::pair<std::string const, int> >* std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_create_node<std::piecewise_construct_t const&, std::tuple<std::string const&>, std::tuple<> >(std::piecewise_construct_t const&, std::tuple<std::string const&>&&, std::tuple<>&&) (stl_tree.h:653)
+|       ->10.56% (3,408B) 0x4055E7: std::_Rb_tree_iterator<std::pair<std::string const, int> > std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<std::string const&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<std::string const, int> >, std::piecewise_construct_t const&, std::tuple<std::string const&>&&, std::tuple<>&&) (stl_tree.h:2414)
+|         ->10.56% (3,408B) 0x404D3C: std::map<std::string, int, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::operator[](std::string const&) (stl_map.h:499)
+|           ->10.56% (3,408B) 0x4042D1: compressLZW(std::string const&) (lzw.cpp:18)
+|             ->10.56% (3,408B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+|               ->10.56% (3,408B) 0x402DE1: main (main.cpp:98)
+|                 
+->27.51% (8,881B) 0x4EEACD8: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| ->20.78% (6,708B) 0x4EEAD29: std::string::_S_construct(unsigned long, char, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->20.61% (6,656B) 0x405F45: char* std::string::_S_construct_aux<int>(int, int, std::allocator<char> const&, std::__true_type) (basic_string.h:5061)
+| | | ->20.61% (6,656B) 0x4051DE: char* std::string::_S_construct<int>(int, int, std::allocator<char> const&) (basic_string.h:5073)
+| | |   ->20.61% (6,656B) 0x4049F3: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<int>(int, int, std::allocator<char> const&) (basic_string.tcc:679)
+| | |     ->20.61% (6,656B) 0x40417D: compressLZW(std::string const&) (lzw.cpp:7)
+| | |       ->20.61% (6,656B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+| | |         ->20.61% (6,656B) 0x402DE1: main (main.cpp:98)
+| | |           
+| | ->00.16% (52B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->06.04% (1,949B) 0x4EEB8EA: std::string::_Rep::_M_clone(std::allocator<char> const&, unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->06.04% (1,949B) 0x4EEB993: std::string::reserve(unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| |   ->06.04% (1,949B) 0x4EEBD75: std::string::append(unsigned long, char) (in /usr/lib64/libstdc++.so.6.0.19)
+| |     ->06.04% (1,949B) 0x404BDC: std::basic_string<char, std::char_traits<char>, std::allocator<char> > std::operator+<char, std::char_traits<char>, std::allocator<char> >(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, char) (basic_string.h:5985)
+| |       ->06.04% (1,949B) 0x404249: compressLZW(std::string const&) (lzw.cpp:13)
+| |         ->06.04% (1,949B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+| |           ->06.04% (1,949B) 0x402DE1: main (main.cpp:98)
+| |             
+| ->00.69% (224B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->01.59% (512B) 0x40848D: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (new_allocator.h:111)
+| ->01.59% (512B) 0x407B6A: std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long) (alloc_traits.h:436)
+|   ->01.59% (512B) 0x406A43: std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) (stl_vector.h:296)
+|     ->01.59% (512B) 0x405783: void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&) (vector.tcc:427)
+|       ->01.59% (512B) 0x404DCF: std::vector<int, std::allocator<int> >::push_back(int const&) (stl_vector.h:1085)
+|         ->01.59% (512B) 0x4042AC: compressLZW(std::string const&) (lzw.cpp:17)
+|           ->01.59% (512B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+|             ->01.59% (512B) 0x402DE1: main (main.cpp:98)
+|               
+->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 29      3,012,571           33,056           25,695         7,361            0
+77.73% (25,695B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->48.64% (16,080B) 0x408794: __gnu_cxx::new_allocator<std::_Rb_tree_node<std::pair<std::string const, int> > >::allocate(unsigned long, void const*) (new_allocator.h:111)
+| ->48.64% (16,080B) 0x4082A4: std::allocator_traits<std::allocator<std::_Rb_tree_node<std::pair<std::string const, int> > > >::allocate(std::allocator<std::_Rb_tree_node<std::pair<std::string const, int> > >&, unsigned long) (alloc_traits.h:436)
+|   ->48.64% (16,080B) 0x4075D8: std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_get_node() (stl_tree.h:599)
+|     ->37.17% (12,288B) 0x4060DC: std::_Rb_tree_node<std::pair<std::string const, int> >* std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_create_node<std::piecewise_construct_t const&, std::tuple<std::string&&>, std::tuple<> >(std::piecewise_construct_t const&, std::tuple<std::string&&>&&, std::tuple<>&&) (stl_tree.h:653)
+|     | ->37.17% (12,288B) 0x405383: std::_Rb_tree_iterator<std::pair<std::string const, int> > std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<std::string&&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<std::string const, int> >, std::piecewise_construct_t const&, std::tuple<std::string&&>&&, std::tuple<>&&) (stl_tree.h:2414)
+|     |   ->37.17% (12,288B) 0x404AF9: std::map<std::string, int, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::operator[](std::string&&) (stl_map.h:518)
+|     |     ->37.17% (12,288B) 0x404190: compressLZW(std::string const&) (lzw.cpp:7)
+|     |       ->37.17% (12,288B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+|     |         ->37.17% (12,288B) 0x402DE1: main (main.cpp:98)
+|     |           
+|     ->11.47% (3,792B) 0x40682A: std::_Rb_tree_node<std::pair<std::string const, int> >* std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_create_node<std::piecewise_construct_t const&, std::tuple<std::string const&>, std::tuple<> >(std::piecewise_construct_t const&, std::tuple<std::string const&>&&, std::tuple<>&&) (stl_tree.h:653)
+|       ->11.47% (3,792B) 0x4055E7: std::_Rb_tree_iterator<std::pair<std::string const, int> > std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<std::string const&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<std::string const, int> >, std::piecewise_construct_t const&, std::tuple<std::string const&>&&, std::tuple<>&&) (stl_tree.h:2414)
+|         ->11.47% (3,792B) 0x404D3C: std::map<std::string, int, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::operator[](std::string const&) (stl_map.h:499)
+|           ->11.47% (3,792B) 0x4042D1: compressLZW(std::string const&) (lzw.cpp:18)
+|             ->11.47% (3,792B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+|               ->11.47% (3,792B) 0x402DE1: main (main.cpp:98)
+|                 
+->27.54% (9,103B) 0x4EEACD8: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| ->20.29% (6,708B) 0x4EEAD29: std::string::_S_construct(unsigned long, char, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->20.14% (6,656B) 0x405F45: char* std::string::_S_construct_aux<int>(int, int, std::allocator<char> const&, std::__true_type) (basic_string.h:5061)
+| | | ->20.14% (6,656B) 0x4051DE: char* std::string::_S_construct<int>(int, int, std::allocator<char> const&) (basic_string.h:5073)
+| | |   ->20.14% (6,656B) 0x4049F3: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<int>(int, int, std::allocator<char> const&) (basic_string.tcc:679)
+| | |     ->20.14% (6,656B) 0x40417D: compressLZW(std::string const&) (lzw.cpp:7)
+| | |       ->20.14% (6,656B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+| | |         ->20.14% (6,656B) 0x402DE1: main (main.cpp:98)
+| | |           
+| | ->00.16% (52B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->06.57% (2,171B) 0x4EEB8EA: std::string::_Rep::_M_clone(std::allocator<char> const&, unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->06.57% (2,171B) 0x4EEB993: std::string::reserve(unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| |   ->06.57% (2,171B) 0x4EEBD75: std::string::append(unsigned long, char) (in /usr/lib64/libstdc++.so.6.0.19)
+| |     ->06.57% (2,171B) 0x404BDC: std::basic_string<char, std::char_traits<char>, std::allocator<char> > std::operator+<char, std::char_traits<char>, std::allocator<char> >(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, char) (basic_string.h:5985)
+| |       ->06.57% (2,171B) 0x404249: compressLZW(std::string const&) (lzw.cpp:13)
+| |         ->06.57% (2,171B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+| |           ->06.57% (2,171B) 0x402DE1: main (main.cpp:98)
+| |             
+| ->00.68% (224B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->01.55% (512B) 0x40848D: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (new_allocator.h:111)
+| ->01.55% (512B) 0x407B6A: std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long) (alloc_traits.h:436)
+|   ->01.55% (512B) 0x406A43: std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) (stl_vector.h:296)
+|     ->01.55% (512B) 0x405783: void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&) (vector.tcc:427)
+|       ->01.55% (512B) 0x404DCF: std::vector<int, std::allocator<int> >::push_back(int const&) (stl_vector.h:1085)
+|         ->01.55% (512B) 0x4042AC: compressLZW(std::string const&) (lzw.cpp:17)
+|           ->01.55% (512B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+|             ->01.55% (512B) 0x402DE1: main (main.cpp:98)
+|               
+->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 30      3,050,794           33,440           26,004         7,436            0
+77.76% (26,004B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->48.66% (16,272B) 0x408794: __gnu_cxx::new_allocator<std::_Rb_tree_node<std::pair<std::string const, int> > >::allocate(unsigned long, void const*) (new_allocator.h:111)
+| ->48.66% (16,272B) 0x4082A4: std::allocator_traits<std::allocator<std::_Rb_tree_node<std::pair<std::string const, int> > > >::allocate(std::allocator<std::_Rb_tree_node<std::pair<std::string const, int> > >&, unsigned long) (alloc_traits.h:436)
+|   ->48.66% (16,272B) 0x4075D8: std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_get_node() (stl_tree.h:599)
+|     ->36.75% (12,288B) 0x4060DC: std::_Rb_tree_node<std::pair<std::string const, int> >* std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_create_node<std::piecewise_construct_t const&, std::tuple<std::string&&>, std::tuple<> >(std::piecewise_construct_t const&, std::tuple<std::string&&>&&, std::tuple<>&&) (stl_tree.h:653)
+|     | ->36.75% (12,288B) 0x405383: std::_Rb_tree_iterator<std::pair<std::string const, int> > std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<std::string&&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<std::string const, int> >, std::piecewise_construct_t const&, std::tuple<std::string&&>&&, std::tuple<>&&) (stl_tree.h:2414)
+|     |   ->36.75% (12,288B) 0x404AF9: std::map<std::string, int, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::operator[](std::string&&) (stl_map.h:518)
+|     |     ->36.75% (12,288B) 0x404190: compressLZW(std::string const&) (lzw.cpp:7)
+|     |       ->36.75% (12,288B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+|     |         ->36.75% (12,288B) 0x402DE1: main (main.cpp:98)
+|     |           
+|     ->11.91% (3,984B) 0x40682A: std::_Rb_tree_node<std::pair<std::string const, int> >* std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_create_node<std::piecewise_construct_t const&, std::tuple<std::string const&>, std::tuple<> >(std::piecewise_construct_t const&, std::tuple<std::string const&>&&, std::tuple<>&&) (stl_tree.h:653)
+|       ->11.91% (3,984B) 0x4055E7: std::_Rb_tree_iterator<std::pair<std::string const, int> > std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<std::string const&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<std::string const, int> >, std::piecewise_construct_t const&, std::tuple<std::string const&>&&, std::tuple<>&&) (stl_tree.h:2414)
+|         ->11.91% (3,984B) 0x404D3C: std::map<std::string, int, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::operator[](std::string const&) (stl_map.h:499)
+|           ->11.91% (3,984B) 0x4042D1: compressLZW(std::string const&) (lzw.cpp:18)
+|             ->11.91% (3,984B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+|               ->11.91% (3,984B) 0x402DE1: main (main.cpp:98)
+|                 
+->27.57% (9,220B) 0x4EEACD8: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| ->19.98% (6,682B) 0x4EEAD29: std::string::_S_construct(unsigned long, char, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->19.90% (6,656B) 0x405F45: char* std::string::_S_construct_aux<int>(int, int, std::allocator<char> const&, std::__true_type) (basic_string.h:5061)
+| | | ->19.90% (6,656B) 0x4051DE: char* std::string::_S_construct<int>(int, int, std::allocator<char> const&) (basic_string.h:5073)
+| | |   ->19.90% (6,656B) 0x4049F3: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<int>(int, int, std::allocator<char> const&) (basic_string.tcc:679)
+| | |     ->19.90% (6,656B) 0x40417D: compressLZW(std::string const&) (lzw.cpp:7)
+| | |       ->19.90% (6,656B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+| | |         ->19.90% (6,656B) 0x402DE1: main (main.cpp:98)
+| | |           
+| | ->00.08% (26B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->06.92% (2,314B) 0x4EEB8EA: std::string::_Rep::_M_clone(std::allocator<char> const&, unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->06.92% (2,314B) 0x4EEB993: std::string::reserve(unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| |   ->06.92% (2,314B) 0x4EEBD75: std::string::append(unsigned long, char) (in /usr/lib64/libstdc++.so.6.0.19)
+| |     ->06.92% (2,314B) 0x404BDC: std::basic_string<char, std::char_traits<char>, std::allocator<char> > std::operator+<char, std::char_traits<char>, std::allocator<char> >(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, char) (basic_string.h:5985)
+| |       ->06.92% (2,314B) 0x404249: compressLZW(std::string const&) (lzw.cpp:13)
+| |         ->06.92% (2,314B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+| |           ->06.92% (2,314B) 0x402DE1: main (main.cpp:98)
+| |             
+| ->00.67% (224B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->01.53% (512B) 0x40848D: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (new_allocator.h:111)
+| ->01.53% (512B) 0x407B6A: std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long) (alloc_traits.h:436)
+|   ->01.53% (512B) 0x406A43: std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) (stl_vector.h:296)
+|     ->01.53% (512B) 0x405783: void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&) (vector.tcc:427)
+|       ->01.53% (512B) 0x404DCF: std::vector<int, std::allocator<int> >::push_back(int const&) (stl_vector.h:1085)
+|         ->01.53% (512B) 0x4042AC: compressLZW(std::string const&) (lzw.cpp:17)
+|           ->01.53% (512B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+|             ->01.53% (512B) 0x402DE1: main (main.cpp:98)
+|               
+->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 31      3,142,948           34,592           26,909         7,683            0
+77.79% (26,909B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->48.70% (16,848B) 0x408794: __gnu_cxx::new_allocator<std::_Rb_tree_node<std::pair<std::string const, int> > >::allocate(unsigned long, void const*) (new_allocator.h:111)
+| ->48.70% (16,848B) 0x4082A4: std::allocator_traits<std::allocator<std::_Rb_tree_node<std::pair<std::string const, int> > > >::allocate(std::allocator<std::_Rb_tree_node<std::pair<std::string const, int> > >&, unsigned long) (alloc_traits.h:436)
+|   ->48.70% (16,848B) 0x4075D8: std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_get_node() (stl_tree.h:599)
+|     ->35.52% (12,288B) 0x4060DC: std::_Rb_tree_node<std::pair<std::string const, int> >* std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_create_node<std::piecewise_construct_t const&, std::tuple<std::string&&>, std::tuple<> >(std::piecewise_construct_t const&, std::tuple<std::string&&>&&, std::tuple<>&&) (stl_tree.h:653)
+|     | ->35.52% (12,288B) 0x405383: std::_Rb_tree_iterator<std::pair<std::string const, int> > std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<std::string&&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<std::string const, int> >, std::piecewise_construct_t const&, std::tuple<std::string&&>&&, std::tuple<>&&) (stl_tree.h:2414)
+|     |   ->35.52% (12,288B) 0x404AF9: std::map<std::string, int, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::operator[](std::string&&) (stl_map.h:518)
+|     |     ->35.52% (12,288B) 0x404190: compressLZW(std::string const&) (lzw.cpp:7)
+|     |       ->35.52% (12,288B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+|     |         ->35.52% (12,288B) 0x402DE1: main (main.cpp:98)
+|     |           
+|     ->13.18% (4,560B) 0x40682A: std::_Rb_tree_node<std::pair<std::string const, int> >* std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_create_node<std::piecewise_construct_t const&, std::tuple<std::string const&>, std::tuple<> >(std::piecewise_construct_t const&, std::tuple<std::string const&>&&, std::tuple<>&&) (stl_tree.h:653)
+|       ->13.18% (4,560B) 0x4055E7: std::_Rb_tree_iterator<std::pair<std::string const, int> > std::_Rb_tree<std::string, std::pair<std::string const, int>, std::_Select1st<std::pair<std::string const, int> >, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<std::string const&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<std::string const, int> >, std::piecewise_construct_t const&, std::tuple<std::string const&>&&, std::tuple<>&&) (stl_tree.h:2414)
+|         ->13.18% (4,560B) 0x404D3C: std::map<std::string, int, std::less<std::string>, std::allocator<std::pair<std::string const, int> > >::operator[](std::string const&) (stl_map.h:499)
+|           ->13.18% (4,560B) 0x4042D1: compressLZW(std::string const&) (lzw.cpp:18)
+|             ->13.18% (4,560B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+|               ->13.18% (4,560B) 0x402DE1: main (main.cpp:98)
+|                 
+->27.60% (9,549B) 0x4EEACD8: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| ->19.39% (6,708B) 0x4EEAD29: std::string::_S_construct(unsigned long, char, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->19.24% (6,656B) 0x405F45: char* std::string::_S_construct_aux<int>(int, int, std::allocator<char> const&, std::__true_type) (basic_string.h:5061)
+| | | ->19.24% (6,656B) 0x4051DE: char* std::string::_S_construct<int>(int, int, std::allocator<char> const&) (basic_string.h:5073)
+| | |   ->19.24% (6,656B) 0x4049F3: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<int>(int, int, std::allocator<char> const&) (basic_string.tcc:679)
+| | |     ->19.24% (6,656B) 0x40417D: compressLZW(std::string const&) (lzw.cpp:7)
+| | |       ->19.24% (6,656B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+| | |         ->19.24% (6,656B) 0x402DE1: main (main.cpp:98)
+| | |           
+| | ->00.15% (52B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->07.57% (2,617B) 0x4EEB8EA: std::string::_Rep::_M_clone(std::allocator<char> const&, unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->07.57% (2,617B) 0x4EEB993: std::string::reserve(unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| |   ->07.57% (2,617B) 0x4EEBD75: std::string::append(unsigned long, char) (in /usr/lib64/libstdc++.so.6.0.19)
+| |     ->07.57% (2,617B) 0x404BDC: std::basic_string<char, std::char_traits<char>, std::allocator<char> > std::operator+<char, std::char_traits<char>, std::allocator<char> >(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, char) (basic_string.h:5985)
+| |       ->07.57% (2,617B) 0x404249: compressLZW(std::string const&) (lzw.cpp:13)
+| |         ->07.57% (2,617B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+| |           ->07.57% (2,617B) 0x402DE1: main (main.cpp:98)
+| |             
+| ->00.65% (224B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->01.48% (512B) 0x40848D: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (new_allocator.h:111)
+| ->01.48% (512B) 0x407B6A: std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long) (alloc_traits.h:436)
+|   ->01.48% (512B) 0x406A43: std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) (stl_vector.h:296)
+|     ->01.48% (512B) 0x405783: void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&) (vector.tcc:427)
+|       ->01.48% (512B) 0x404DCF: std::vector<int, std::allocator<int> >::push_back(int const&) (stl_vector.h:1085)
+|         ->01.48% (512B) 0x4042AC: compressLZW(std::string const&) (lzw.cpp:17)
+|           ->01.48% (512B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+|             ->01.48% (512B) 0x402DE1: main (main.cpp:98)
+|               
+->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 32      3,183,453           25,872           20,199         5,673            0
+ 33      3,262,846            1,112              984           128            0
+ 34      3,319,040            3,664            2,956           708            0
+ 35      3,394,165            6,640            5,250         1,390            0
+ 36      3,471,195            9,520            7,470         2,050            0
+78.47% (7,470B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->45.88% (4,368B) 0x408A14: __gnu_cxx::new_allocator<std::_Rb_tree_node<std::pair<int const, std::string> > >::allocate(unsigned long, void const*) (new_allocator.h:111)
+| ->45.88% (4,368B) 0x408573: std::allocator_traits<std::allocator<std::_Rb_tree_node<std::pair<int const, std::string> > > >::allocate(std::allocator<std::_Rb_tree_node<std::pair<int const, std::string> > >&, unsigned long) (alloc_traits.h:436)
+|   ->45.88% (4,368B) 0x407D4A: std::_Rb_tree<int, std::pair<int const, std::string>, std::_Select1st<std::pair<int const, std::string> >, std::less<int>, std::allocator<std::pair<int const, std::string> > >::_M_get_node() (stl_tree.h:599)
+|     ->45.88% (4,368B) 0x406C38: std::_Rb_tree_node<std::pair<int const, std::string> >* std::_Rb_tree<int, std::pair<int const, std::string>, std::_Select1st<std::pair<int const, std::string> >, std::less<int>, std::allocator<std::pair<int const, std::string> > >::_M_create_node<std::piecewise_construct_t const&, std::tuple<int const&>, std::tuple<> >(std::piecewise_construct_t const&, std::tuple<int const&>&&, std::tuple<>&&) (stl_tree.h:653)
+|       ->45.88% (4,368B) 0x405B69: std::_Rb_tree_iterator<std::pair<int const, std::string> > std::_Rb_tree<int, std::pair<int const, std::string>, std::_Select1st<std::pair<int const, std::string> >, std::less<int>, std::allocator<std::pair<int const, std::string> > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<int const&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<int const, std::string> >, std::piecewise_construct_t const&, std::tuple<int const&>&&, std::tuple<>&&) (stl_tree.h:2414)
+|         ->45.88% (4,368B) 0x404F58: std::map<int, std::string, std::less<int>, std::allocator<std::pair<int const, std::string> > >::operator[](int const&) (stl_map.h:499)
+|           ->45.88% (4,368B) 0x4044C3: decompressLZW(std::vector<int, std::allocator<int> > const&) (lzw.cpp:31)
+|             ->45.88% (4,368B) 0x402ABB: benchmarkCompression(std::string const&, std::string const&) (main.cpp:64)
+|               ->45.88% (4,368B) 0x402DE1: main (main.cpp:98)
+|                 
+->27.21% (2,590B) 0x4EEACD8: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| ->24.85% (2,366B) 0x4EEAD29: std::string::_S_construct(unsigned long, char, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->24.85% (2,366B) 0x405F45: char* std::string::_S_construct_aux<int>(int, int, std::allocator<char> const&, std::__true_type) (basic_string.h:5061)
+| | | ->24.85% (2,366B) 0x4051DE: char* std::string::_S_construct<int>(int, int, std::allocator<char> const&) (basic_string.h:5073)
+| | |   ->24.85% (2,366B) 0x4049F3: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<int>(int, int, std::allocator<char> const&) (basic_string.tcc:679)
+| | |     ->24.85% (2,366B) 0x4044AD: decompressLZW(std::vector<int, std::allocator<int> > const&) (lzw.cpp:31)
+| | |     | ->24.85% (2,366B) 0x402ABB: benchmarkCompression(std::string const&, std::string const&) (main.cpp:64)
+| | |     |   ->24.85% (2,366B) 0x402DE1: main (main.cpp:98)
+| | |     |     
+| | |     ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | |     
+| | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->01.58% (150B) 0x409668: char* std::string::_S_construct<std::istreambuf_iterator<char, std::char_traits<char> > >(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::allocator<char> const&, std::input_iterator_tag) (basic_string.tcc:533)
+| | ->01.58% (150B) 0x40951C: char* std::string::_S_construct_aux<std::istreambuf_iterator<char, std::char_traits<char> > >(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::allocator<char> const&, std::__false_type) (basic_string.h:5052)
+| |   ->01.58% (150B) 0x4094CC: char* std::string::_S_construct<std::istreambuf_iterator<char, std::char_traits<char> > >(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::allocator<char> const&) (basic_string.h:5073)
+| |     ->01.58% (150B) 0x409462: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<std::istreambuf_iterator<char, std::char_traits<char> > >(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::allocator<char> const&) (basic_string.tcc:679)
+| |       ->01.58% (150B) 0x4091B8: readTextFile(std::string const&) (file_io.cpp:11)
+| |         ->01.58% (150B) 0x402DBF: main (main.cpp:95)
+| |           
+| ->00.78% (74B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->05.38% (512B) 0x40848D: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (new_allocator.h:111)
+| ->05.38% (512B) 0x407B6A: std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long) (alloc_traits.h:436)
+|   ->05.38% (512B) 0x406A43: std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) (stl_vector.h:296)
+|     ->05.38% (512B) 0x405783: void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&) (vector.tcc:427)
+|       ->05.38% (512B) 0x404DCF: std::vector<int, std::allocator<int> >::push_back(int const&) (stl_vector.h:1085)
+|         ->05.38% (512B) 0x4042AC: compressLZW(std::string const&) (lzw.cpp:17)
+|           ->05.38% (512B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+|             ->05.38% (512B) 0x402DE1: main (main.cpp:98)
+|               
+->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 37      3,526,909           11,536            9,024         2,512            0
+ 38      3,602,905           14,224           11,096         3,128            0
+ 39      3,660,988           16,240           12,650         3,590            0
+77.89% (12,650B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->47.59% (7,728B) 0x408A14: __gnu_cxx::new_allocator<std::_Rb_tree_node<std::pair<int const, std::string> > >::allocate(unsigned long, void const*) (new_allocator.h:111)
+| ->47.59% (7,728B) 0x408573: std::allocator_traits<std::allocator<std::_Rb_tree_node<std::pair<int const, std::string> > > >::allocate(std::allocator<std::_Rb_tree_node<std::pair<int const, std::string> > >&, unsigned long) (alloc_traits.h:436)
+|   ->47.59% (7,728B) 0x407D4A: std::_Rb_tree<int, std::pair<int const, std::string>, std::_Select1st<std::pair<int const, std::string> >, std::less<int>, std::allocator<std::pair<int const, std::string> > >::_M_get_node() (stl_tree.h:599)
+|     ->47.59% (7,728B) 0x406C38: std::_Rb_tree_node<std::pair<int const, std::string> >* std::_Rb_tree<int, std::pair<int const, std::string>, std::_Select1st<std::pair<int const, std::string> >, std::less<int>, std::allocator<std::pair<int const, std::string> > >::_M_create_node<std::piecewise_construct_t const&, std::tuple<int const&>, std::tuple<> >(std::piecewise_construct_t const&, std::tuple<int const&>&&, std::tuple<>&&) (stl_tree.h:653)
+|       ->47.59% (7,728B) 0x405B69: std::_Rb_tree_iterator<std::pair<int const, std::string> > std::_Rb_tree<int, std::pair<int const, std::string>, std::_Select1st<std::pair<int const, std::string> >, std::less<int>, std::allocator<std::pair<int const, std::string> > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<int const&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<int const, std::string> >, std::piecewise_construct_t const&, std::tuple<int const&>&&, std::tuple<>&&) (stl_tree.h:2414)
+|         ->47.59% (7,728B) 0x404F58: std::map<int, std::string, std::less<int>, std::allocator<std::pair<int const, std::string> > >::operator[](int const&) (stl_map.h:499)
+|           ->47.59% (7,728B) 0x4044C3: decompressLZW(std::vector<int, std::allocator<int> > const&) (lzw.cpp:31)
+|             ->47.59% (7,728B) 0x402ABB: benchmarkCompression(std::string const&, std::string const&) (main.cpp:64)
+|               ->47.59% (7,728B) 0x402DE1: main (main.cpp:98)
+|                 
+->27.16% (4,410B) 0x4EEACD8: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| ->25.78% (4,186B) 0x4EEAD29: std::string::_S_construct(unsigned long, char, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->25.78% (4,186B) 0x405F45: char* std::string::_S_construct_aux<int>(int, int, std::allocator<char> const&, std::__true_type) (basic_string.h:5061)
+| | | ->25.78% (4,186B) 0x4051DE: char* std::string::_S_construct<int>(int, int, std::allocator<char> const&) (basic_string.h:5073)
+| | |   ->25.78% (4,186B) 0x4049F3: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<int>(int, int, std::allocator<char> const&) (basic_string.tcc:679)
+| | |     ->25.78% (4,186B) 0x4044AD: decompressLZW(std::vector<int, std::allocator<int> > const&) (lzw.cpp:31)
+| | |     | ->25.78% (4,186B) 0x402ABB: benchmarkCompression(std::string const&, std::string const&) (main.cpp:64)
+| | |     |   ->25.78% (4,186B) 0x402DE1: main (main.cpp:98)
+| | |     |     
+| | |     ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | |     
+| | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->01.38% (224B) in 3 places, all below massif's threshold (1.00%)
+|   
+->03.15% (512B) 0x40848D: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (new_allocator.h:111)
+| ->03.15% (512B) 0x407B6A: std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long) (alloc_traits.h:436)
+|   ->03.15% (512B) 0x406A43: std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) (stl_vector.h:296)
+|     ->03.15% (512B) 0x405783: void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&) (vector.tcc:427)
+|       ->03.15% (512B) 0x404DCF: std::vector<int, std::allocator<int> >::push_back(int const&) (stl_vector.h:1085)
+|         ->03.15% (512B) 0x4042AC: compressLZW(std::string const&) (lzw.cpp:17)
+|           ->03.15% (512B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+|             ->03.15% (512B) 0x402DE1: main (main.cpp:98)
+|               
+->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 40      3,738,351           18,928           14,722         4,206            0
+ 41      3,793,814           20,792           16,154         4,638            0
+ 42      3,849,806           22,672           17,608         5,064            0
+77.66% (17,608B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->48.27% (10,944B) 0x408A14: __gnu_cxx::new_allocator<std::_Rb_tree_node<std::pair<int const, std::string> > >::allocate(unsigned long, void const*) (new_allocator.h:111)
+| ->48.27% (10,944B) 0x408573: std::allocator_traits<std::allocator<std::_Rb_tree_node<std::pair<int const, std::string> > > >::allocate(std::allocator<std::_Rb_tree_node<std::pair<int const, std::string> > >&, unsigned long) (alloc_traits.h:436)
+|   ->48.27% (10,944B) 0x407D4A: std::_Rb_tree<int, std::pair<int const, std::string>, std::_Select1st<std::pair<int const, std::string> >, std::less<int>, std::allocator<std::pair<int const, std::string> > >::_M_get_node() (stl_tree.h:599)
+|     ->48.27% (10,944B) 0x406C38: std::_Rb_tree_node<std::pair<int const, std::string> >* std::_Rb_tree<int, std::pair<int const, std::string>, std::_Select1st<std::pair<int const, std::string> >, std::less<int>, std::allocator<std::pair<int const, std::string> > >::_M_create_node<std::piecewise_construct_t const&, std::tuple<int const&>, std::tuple<> >(std::piecewise_construct_t const&, std::tuple<int const&>&&, std::tuple<>&&) (stl_tree.h:653)
+|       ->48.27% (10,944B) 0x405B69: std::_Rb_tree_iterator<std::pair<int const, std::string> > std::_Rb_tree<int, std::pair<int const, std::string>, std::_Select1st<std::pair<int const, std::string> >, std::less<int>, std::allocator<std::pair<int const, std::string> > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<int const&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<int const, std::string> >, std::piecewise_construct_t const&, std::tuple<int const&>&&, std::tuple<>&&) (stl_tree.h:2414)
+|         ->48.27% (10,944B) 0x404F58: std::map<int, std::string, std::less<int>, std::allocator<std::pair<int const, std::string> > >::operator[](int const&) (stl_map.h:499)
+|           ->48.27% (10,944B) 0x4044C3: decompressLZW(std::vector<int, std::allocator<int> > const&) (lzw.cpp:31)
+|             ->48.27% (10,944B) 0x402ABB: benchmarkCompression(std::string const&, std::string const&) (main.cpp:64)
+|               ->48.27% (10,944B) 0x402DE1: main (main.cpp:98)
+|                 
+->27.13% (6,152B) 0x4EEACD8: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| ->26.15% (5,928B) 0x4EEAD29: std::string::_S_construct(unsigned long, char, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->26.15% (5,928B) 0x405F45: char* std::string::_S_construct_aux<int>(int, int, std::allocator<char> const&, std::__true_type) (basic_string.h:5061)
+| | | ->26.15% (5,928B) 0x4051DE: char* std::string::_S_construct<int>(int, int, std::allocator<char> const&) (basic_string.h:5073)
+| | |   ->26.15% (5,928B) 0x4049F3: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<int>(int, int, std::allocator<char> const&) (basic_string.tcc:679)
+| | |     ->26.15% (5,928B) 0x4044AD: decompressLZW(std::vector<int, std::allocator<int> > const&) (lzw.cpp:31)
+| | |     | ->26.15% (5,928B) 0x402ABB: benchmarkCompression(std::string const&, std::string const&) (main.cpp:64)
+| | |     |   ->26.15% (5,928B) 0x402DE1: main (main.cpp:98)
+| | |     |     
+| | |     ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | |     
+| | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.99% (224B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->02.26% (512B) 0x40848D: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (new_allocator.h:111)
+| ->02.26% (512B) 0x407B6A: std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long) (alloc_traits.h:436)
+|   ->02.26% (512B) 0x406A43: std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) (stl_vector.h:296)
+|     ->02.26% (512B) 0x405783: void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&) (vector.tcc:427)
+|       ->02.26% (512B) 0x404DCF: std::vector<int, std::allocator<int> >::push_back(int const&) (stl_vector.h:1085)
+|         ->02.26% (512B) 0x4042AC: compressLZW(std::string const&) (lzw.cpp:17)
+|           ->02.26% (512B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+|             ->02.26% (512B) 0x402DE1: main (main.cpp:98)
+|               
+->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 43      3,887,001           23,920           18,570         5,350            0
+ 44      3,942,913           25,536           19,808         5,728            0
+ 45      3,981,041           26,304           20,399         5,905            0
+ 46      4,036,662           27,104           21,042         6,062            0
+77.63% (21,042B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->48.35% (13,104B) 0x408A14: __gnu_cxx::new_allocator<std::_Rb_tree_node<std::pair<int const, std::string> > >::allocate(unsigned long, void const*) (new_allocator.h:111)
+| ->48.35% (13,104B) 0x408573: std::allocator_traits<std::allocator<std::_Rb_tree_node<std::pair<int const, std::string> > > >::allocate(std::allocator<std::_Rb_tree_node<std::pair<int const, std::string> > >&, unsigned long) (alloc_traits.h:436)
+|   ->48.35% (13,104B) 0x407D4A: std::_Rb_tree<int, std::pair<int const, std::string>, std::_Select1st<std::pair<int const, std::string> >, std::less<int>, std::allocator<std::pair<int const, std::string> > >::_M_get_node() (stl_tree.h:599)
+|     ->45.34% (12,288B) 0x406C38: std::_Rb_tree_node<std::pair<int const, std::string> >* std::_Rb_tree<int, std::pair<int const, std::string>, std::_Select1st<std::pair<int const, std::string> >, std::less<int>, std::allocator<std::pair<int const, std::string> > >::_M_create_node<std::piecewise_construct_t const&, std::tuple<int const&>, std::tuple<> >(std::piecewise_construct_t const&, std::tuple<int const&>&&, std::tuple<>&&) (stl_tree.h:653)
+|     | ->45.34% (12,288B) 0x405B69: std::_Rb_tree_iterator<std::pair<int const, std::string> > std::_Rb_tree<int, std::pair<int const, std::string>, std::_Select1st<std::pair<int const, std::string> >, std::less<int>, std::allocator<std::pair<int const, std::string> > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<int const&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<int const, std::string> >, std::piecewise_construct_t const&, std::tuple<int const&>&&, std::tuple<>&&) (stl_tree.h:2414)
+|     |   ->45.34% (12,288B) 0x404F58: std::map<int, std::string, std::less<int>, std::allocator<std::pair<int const, std::string> > >::operator[](int const&) (stl_map.h:499)
+|     |     ->45.34% (12,288B) 0x4044C3: decompressLZW(std::vector<int, std::allocator<int> > const&) (lzw.cpp:31)
+|     |       ->45.34% (12,288B) 0x402ABB: benchmarkCompression(std::string const&, std::string const&) (main.cpp:64)
+|     |         ->45.34% (12,288B) 0x402DE1: main (main.cpp:98)
+|     |           
+|     ->03.01% (816B) 0x4073A0: std::_Rb_tree_node<std::pair<int const, std::string> >* std::_Rb_tree<int, std::pair<int const, std::string>, std::_Select1st<std::pair<int const, std::string> >, std::less<int>, std::allocator<std::pair<int const, std::string> > >::_M_create_node<std::piecewise_construct_t const&, std::tuple<int&&>, std::tuple<> >(std::piecewise_construct_t const&, std::tuple<int&&>&&, std::tuple<>&&) (stl_tree.h:653)
+|       ->03.01% (816B) 0x405DF7: std::_Rb_tree_iterator<std::pair<int const, std::string> > std::_Rb_tree<int, std::pair<int const, std::string>, std::_Select1st<std::pair<int const, std::string> >, std::less<int>, std::allocator<std::pair<int const, std::string> > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<int&&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<int const, std::string> >, std::piecewise_construct_t const&, std::tuple<int&&>&&, std::tuple<>&&) (stl_tree.h:2414)
+|         ->03.01% (816B) 0x4050F1: std::map<int, std::string, std::less<int>, std::allocator<std::pair<int const, std::string> > >::operator[](int&&) (stl_map.h:518)
+|           ->03.01% (816B) 0x4046BE: decompressLZW(std::vector<int, std::allocator<int> > const&) (lzw.cpp:46)
+|             ->03.01% (816B) 0x402ABB: benchmarkCompression(std::string const&, std::string const&) (main.cpp:64)
+|               ->03.01% (816B) 0x402DE1: main (main.cpp:98)
+|                 
+->27.40% (7,426B) 0x4EEACD8: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| ->24.56% (6,656B) 0x4EEAD29: std::string::_S_construct(unsigned long, char, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->24.56% (6,656B) 0x405F45: char* std::string::_S_construct_aux<int>(int, int, std::allocator<char> const&, std::__true_type) (basic_string.h:5061)
+| | | ->24.56% (6,656B) 0x4051DE: char* std::string::_S_construct<int>(int, int, std::allocator<char> const&) (basic_string.h:5073)
+| | |   ->24.56% (6,656B) 0x4049F3: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<int>(int, int, std::allocator<char> const&) (basic_string.tcc:679)
+| | |     ->24.56% (6,656B) 0x4044AD: decompressLZW(std::vector<int, std::allocator<int> > const&) (lzw.cpp:31)
+| | |     | ->24.56% (6,656B) 0x402ABB: benchmarkCompression(std::string const&, std::string const&) (main.cpp:64)
+| | |     |   ->24.56% (6,656B) 0x402DE1: main (main.cpp:98)
+| | |     |     
+| | |     ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | |     
+| | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->02.01% (546B) 0x4EEB8EA: std::string::_Rep::_M_clone(std::allocator<char> const&, unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->01.92% (520B) 0x4EEB993: std::string::reserve(unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| | | ->01.71% (463B) 0x4EEBD75: std::string::append(unsigned long, char) (in /usr/lib64/libstdc++.so.6.0.19)
+| | | | ->01.71% (463B) 0x404BDC: std::basic_string<char, std::char_traits<char>, std::allocator<char> > std::operator+<char, std::char_traits<char>, std::allocator<char> >(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, char) (basic_string.h:5985)
+| | | |   ->01.71% (463B) 0x40469C: decompressLZW(std::vector<int, std::allocator<int> > const&) (lzw.cpp:46)
+| | | |   | ->01.71% (463B) 0x402ABB: benchmarkCompression(std::string const&, std::string const&) (main.cpp:64)
+| | | |   |   ->01.71% (463B) 0x402DE1: main (main.cpp:98)
+| | | |   |     
+| | | |   ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |   
+| | | ->00.21% (57B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.10% (26B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.83% (224B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->01.89% (512B) 0x40848D: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (new_allocator.h:111)
+| ->01.89% (512B) 0x407B6A: std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long) (alloc_traits.h:436)
+|   ->01.89% (512B) 0x406A43: std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) (stl_vector.h:296)
+|     ->01.89% (512B) 0x405783: void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&) (vector.tcc:427)
+|       ->01.89% (512B) 0x404DCF: std::vector<int, std::allocator<int> >::push_back(int const&) (stl_vector.h:1085)
+|         ->01.89% (512B) 0x4042AC: compressLZW(std::string const&) (lzw.cpp:17)
+|           ->01.89% (512B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+|             ->01.89% (512B) 0x402DE1: main (main.cpp:98)
+|               
+->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 47      4,093,331           28,064           21,792         6,272            0
+ 48      4,152,772           29,072           22,578         6,494            0
+ 49      4,210,288           30,032           23,330         6,702            0
+ 50      4,228,763           30,320           23,560         6,760            0
+77.70% (23,560B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->48.44% (14,688B) 0x408A14: __gnu_cxx::new_allocator<std::_Rb_tree_node<std::pair<int const, std::string> > >::allocate(unsigned long, void const*) (new_allocator.h:111)
+| ->48.44% (14,688B) 0x408573: std::allocator_traits<std::allocator<std::_Rb_tree_node<std::pair<int const, std::string> > > >::allocate(std::allocator<std::_Rb_tree_node<std::pair<int const, std::string> > >&, unsigned long) (alloc_traits.h:436)
+|   ->48.44% (14,688B) 0x407D4A: std::_Rb_tree<int, std::pair<int const, std::string>, std::_Select1st<std::pair<int const, std::string> >, std::less<int>, std::allocator<std::pair<int const, std::string> > >::_M_get_node() (stl_tree.h:599)
+|     ->40.53% (12,288B) 0x406C38: std::_Rb_tree_node<std::pair<int const, std::string> >* std::_Rb_tree<int, std::pair<int const, std::string>, std::_Select1st<std::pair<int const, std::string> >, std::less<int>, std::allocator<std::pair<int const, std::string> > >::_M_create_node<std::piecewise_construct_t const&, std::tuple<int const&>, std::tuple<> >(std::piecewise_construct_t const&, std::tuple<int const&>&&, std::tuple<>&&) (stl_tree.h:653)
+|     | ->40.53% (12,288B) 0x405B69: std::_Rb_tree_iterator<std::pair<int const, std::string> > std::_Rb_tree<int, std::pair<int const, std::string>, std::_Select1st<std::pair<int const, std::string> >, std::less<int>, std::allocator<std::pair<int const, std::string> > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<int const&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<int const, std::string> >, std::piecewise_construct_t const&, std::tuple<int const&>&&, std::tuple<>&&) (stl_tree.h:2414)
+|     |   ->40.53% (12,288B) 0x404F58: std::map<int, std::string, std::less<int>, std::allocator<std::pair<int const, std::string> > >::operator[](int const&) (stl_map.h:499)
+|     |     ->40.53% (12,288B) 0x4044C3: decompressLZW(std::vector<int, std::allocator<int> > const&) (lzw.cpp:31)
+|     |       ->40.53% (12,288B) 0x402ABB: benchmarkCompression(std::string const&, std::string const&) (main.cpp:64)
+|     |         ->40.53% (12,288B) 0x402DE1: main (main.cpp:98)
+|     |           
+|     ->07.92% (2,400B) 0x4073A0: std::_Rb_tree_node<std::pair<int const, std::string> >* std::_Rb_tree<int, std::pair<int const, std::string>, std::_Select1st<std::pair<int const, std::string> >, std::less<int>, std::allocator<std::pair<int const, std::string> > >::_M_create_node<std::piecewise_construct_t const&, std::tuple<int&&>, std::tuple<> >(std::piecewise_construct_t const&, std::tuple<int&&>&&, std::tuple<>&&) (stl_tree.h:653)
+|       ->07.92% (2,400B) 0x405DF7: std::_Rb_tree_iterator<std::pair<int const, std::string> > std::_Rb_tree<int, std::pair<int const, std::string>, std::_Select1st<std::pair<int const, std::string> >, std::less<int>, std::allocator<std::pair<int const, std::string> > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<int&&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<int const, std::string> >, std::piecewise_construct_t const&, std::tuple<int&&>&&, std::tuple<>&&) (stl_tree.h:2414)
+|         ->07.92% (2,400B) 0x4050F1: std::map<int, std::string, std::less<int>, std::allocator<std::pair<int const, std::string> > >::operator[](int&&) (stl_map.h:518)
+|           ->07.92% (2,400B) 0x4046BE: decompressLZW(std::vector<int, std::allocator<int> > const&) (lzw.cpp:46)
+|             ->07.92% (2,400B) 0x402ABB: benchmarkCompression(std::string const&, std::string const&) (main.cpp:64)
+|               ->07.92% (2,400B) 0x402DE1: main (main.cpp:98)
+|                 
+->27.57% (8,360B) 0x4EEACD8: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| ->21.95% (6,656B) 0x4EEAD29: std::string::_S_construct(unsigned long, char, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->21.95% (6,656B) 0x405F45: char* std::string::_S_construct_aux<int>(int, int, std::allocator<char> const&, std::__true_type) (basic_string.h:5061)
+| | | ->21.95% (6,656B) 0x4051DE: char* std::string::_S_construct<int>(int, int, std::allocator<char> const&) (basic_string.h:5073)
+| | |   ->21.95% (6,656B) 0x4049F3: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<int>(int, int, std::allocator<char> const&) (basic_string.tcc:679)
+| | |     ->21.95% (6,656B) 0x4044AD: decompressLZW(std::vector<int, std::allocator<int> > const&) (lzw.cpp:31)
+| | |     | ->21.95% (6,656B) 0x402ABB: benchmarkCompression(std::string const&, std::string const&) (main.cpp:64)
+| | |     |   ->21.95% (6,656B) 0x402DE1: main (main.cpp:98)
+| | |     |     
+| | |     ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | |     
+| | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->04.88% (1,480B) 0x4EEB8EA: std::string::_Rep::_M_clone(std::allocator<char> const&, unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->04.79% (1,453B) 0x4EEB993: std::string::reserve(unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| | | ->04.50% (1,364B) 0x4EEBD75: std::string::append(unsigned long, char) (in /usr/lib64/libstdc++.so.6.0.19)
+| | | | ->04.50% (1,364B) 0x404BDC: std::basic_string<char, std::char_traits<char>, std::allocator<char> > std::operator+<char, std::char_traits<char>, std::allocator<char> >(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, char) (basic_string.h:5985)
+| | | |   ->04.50% (1,364B) 0x40469C: decompressLZW(std::vector<int, std::allocator<int> > const&) (lzw.cpp:46)
+| | | |   | ->04.50% (1,364B) 0x402ABB: benchmarkCompression(std::string const&, std::string const&) (main.cpp:64)
+| | | |   |   ->04.50% (1,364B) 0x402DE1: main (main.cpp:98)
+| | | |   |     
+| | | |   ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |   
+| | | ->00.29% (89B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.09% (27B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.74% (224B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->01.69% (512B) 0x40848D: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (new_allocator.h:111)
+| ->01.69% (512B) 0x407B6A: std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long) (alloc_traits.h:436)
+|   ->01.69% (512B) 0x406A43: std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) (stl_vector.h:296)
+|     ->01.69% (512B) 0x405783: void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&) (vector.tcc:427)
+|       ->01.69% (512B) 0x404DCF: std::vector<int, std::allocator<int> >::push_back(int const&) (stl_vector.h:1085)
+|         ->01.69% (512B) 0x4042AC: compressLZW(std::string const&) (lzw.cpp:17)
+|           ->01.69% (512B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+|             ->01.69% (512B) 0x402DE1: main (main.cpp:98)
+|               
+->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 51      4,247,102           30,608           23,787         6,821            0
+ 52      4,266,798           31,096           24,180         6,916            0
+ 53      4,285,900           31,424           24,433         6,991            0
+ 54      4,306,274           31,632           24,608         7,024            0
+ 55      4,325,137           31,920           24,840         7,080            0
+ 56      4,344,595           32,344           25,169         7,175            0
+ 57      4,363,795           32,672           25,424         7,248            0
+ 58      4,383,502           32,880           25,597         7,283            0
+ 59      4,401,724           33,208           25,852         7,356            0
+ 60      4,420,048           33,456           26,056         7,400            0
+77.88% (26,056B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->48.49% (16,224B) 0x408A14: __gnu_cxx::new_allocator<std::_Rb_tree_node<std::pair<int const, std::string> > >::allocate(unsigned long, void const*) (new_allocator.h:111)
+| ->48.49% (16,224B) 0x408573: std::allocator_traits<std::allocator<std::_Rb_tree_node<std::pair<int const, std::string> > > >::allocate(std::allocator<std::_Rb_tree_node<std::pair<int const, std::string> > >&, unsigned long) (alloc_traits.h:436)
+|   ->48.49% (16,224B) 0x407D4A: std::_Rb_tree<int, std::pair<int const, std::string>, std::_Select1st<std::pair<int const, std::string> >, std::less<int>, std::allocator<std::pair<int const, std::string> > >::_M_get_node() (stl_tree.h:599)
+|     ->36.73% (12,288B) 0x406C38: std::_Rb_tree_node<std::pair<int const, std::string> >* std::_Rb_tree<int, std::pair<int const, std::string>, std::_Select1st<std::pair<int const, std::string> >, std::less<int>, std::allocator<std::pair<int const, std::string> > >::_M_create_node<std::piecewise_construct_t const&, std::tuple<int const&>, std::tuple<> >(std::piecewise_construct_t const&, std::tuple<int const&>&&, std::tuple<>&&) (stl_tree.h:653)
+|     | ->36.73% (12,288B) 0x405B69: std::_Rb_tree_iterator<std::pair<int const, std::string> > std::_Rb_tree<int, std::pair<int const, std::string>, std::_Select1st<std::pair<int const, std::string> >, std::less<int>, std::allocator<std::pair<int const, std::string> > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<int const&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<int const, std::string> >, std::piecewise_construct_t const&, std::tuple<int const&>&&, std::tuple<>&&) (stl_tree.h:2414)
+|     |   ->36.73% (12,288B) 0x404F58: std::map<int, std::string, std::less<int>, std::allocator<std::pair<int const, std::string> > >::operator[](int const&) (stl_map.h:499)
+|     |     ->36.73% (12,288B) 0x4044C3: decompressLZW(std::vector<int, std::allocator<int> > const&) (lzw.cpp:31)
+|     |       ->36.73% (12,288B) 0x402ABB: benchmarkCompression(std::string const&, std::string const&) (main.cpp:64)
+|     |         ->36.73% (12,288B) 0x402DE1: main (main.cpp:98)
+|     |           
+|     ->11.76% (3,936B) 0x4073A0: std::_Rb_tree_node<std::pair<int const, std::string> >* std::_Rb_tree<int, std::pair<int const, std::string>, std::_Select1st<std::pair<int const, std::string> >, std::less<int>, std::allocator<std::pair<int const, std::string> > >::_M_create_node<std::piecewise_construct_t const&, std::tuple<int&&>, std::tuple<> >(std::piecewise_construct_t const&, std::tuple<int&&>&&, std::tuple<>&&) (stl_tree.h:653)
+|       ->11.76% (3,936B) 0x405DF7: std::_Rb_tree_iterator<std::pair<int const, std::string> > std::_Rb_tree<int, std::pair<int const, std::string>, std::_Select1st<std::pair<int const, std::string> >, std::less<int>, std::allocator<std::pair<int const, std::string> > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<int&&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<int const, std::string> >, std::piecewise_construct_t const&, std::tuple<int&&>&&, std::tuple<>&&) (stl_tree.h:2414)
+|         ->11.76% (3,936B) 0x4050F1: std::map<int, std::string, std::less<int>, std::allocator<std::pair<int const, std::string> > >::operator[](int&&) (stl_map.h:518)
+|           ->11.76% (3,936B) 0x4046BE: decompressLZW(std::vector<int, std::allocator<int> > const&) (lzw.cpp:46)
+|             ->11.76% (3,936B) 0x402ABB: benchmarkCompression(std::string const&, std::string const&) (main.cpp:64)
+|               ->11.76% (3,936B) 0x402DE1: main (main.cpp:98)
+|                 
+->27.86% (9,320B) 0x4EEACD8: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| ->19.89% (6,656B) 0x4EEAD29: std::string::_S_construct(unsigned long, char, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->19.89% (6,656B) 0x405F45: char* std::string::_S_construct_aux<int>(int, int, std::allocator<char> const&, std::__true_type) (basic_string.h:5061)
+| | | ->19.89% (6,656B) 0x4051DE: char* std::string::_S_construct<int>(int, int, std::allocator<char> const&) (basic_string.h:5073)
+| | |   ->19.89% (6,656B) 0x4049F3: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<int>(int, int, std::allocator<char> const&) (basic_string.tcc:679)
+| | |     ->19.89% (6,656B) 0x4044AD: decompressLZW(std::vector<int, std::allocator<int> > const&) (lzw.cpp:31)
+| | |     | ->19.89% (6,656B) 0x402ABB: benchmarkCompression(std::string const&, std::string const&) (main.cpp:64)
+| | |     |   ->19.89% (6,656B) 0x402DE1: main (main.cpp:98)
+| | |     |     
+| | |     ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | |     
+| | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->07.29% (2,440B) 0x4EEB8EA: std::string::_Rep::_M_clone(std::allocator<char> const&, unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->07.21% (2,413B) 0x4EEB993: std::string::reserve(unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| | | ->06.76% (2,260B) 0x4EEBD75: std::string::append(unsigned long, char) (in /usr/lib64/libstdc++.so.6.0.19)
+| | | | ->06.76% (2,260B) 0x404BDC: std::basic_string<char, std::char_traits<char>, std::allocator<char> > std::operator+<char, std::char_traits<char>, std::allocator<char> >(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, char) (basic_string.h:5985)
+| | | |   ->06.76% (2,260B) 0x40469C: decompressLZW(std::vector<int, std::allocator<int> > const&) (lzw.cpp:46)
+| | | |   | ->06.76% (2,260B) 0x402ABB: benchmarkCompression(std::string const&, std::string const&) (main.cpp:64)
+| | | |   |   ->06.76% (2,260B) 0x402DE1: main (main.cpp:98)
+| | | |   |     
+| | | |   ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |   
+| | | ->00.46% (153B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.08% (27B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.67% (224B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->01.53% (512B) 0x40848D: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (new_allocator.h:111)
+| ->01.53% (512B) 0x407B6A: std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long) (alloc_traits.h:436)
+|   ->01.53% (512B) 0x406A43: std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) (stl_vector.h:296)
+|     ->01.53% (512B) 0x405783: void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&) (vector.tcc:427)
+|       ->01.53% (512B) 0x404DCF: std::vector<int, std::allocator<int> >::push_back(int const&) (stl_vector.h:1085)
+|         ->01.53% (512B) 0x4042AC: compressLZW(std::string const&) (lzw.cpp:17)
+|           ->01.53% (512B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+|             ->01.53% (512B) 0x402DE1: main (main.cpp:98)
+|               
+->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 61      4,439,520           33,880           26,385         7,495            0
+ 62      4,457,864           34,208           26,636         7,572            0
+ 63      4,478,201           34,416           26,813         7,603            0
+ 64      4,497,678           34,840           27,139         7,701            0
+ 65      4,504,643           34,976           27,240         7,736            0
+77.88% (27,240B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->48.44% (16,944B) 0x408A14: __gnu_cxx::new_allocator<std::_Rb_tree_node<std::pair<int const, std::string> > >::allocate(unsigned long, void const*) (new_allocator.h:111)
+| ->48.44% (16,944B) 0x408573: std::allocator_traits<std::allocator<std::_Rb_tree_node<std::pair<int const, std::string> > > >::allocate(std::allocator<std::_Rb_tree_node<std::pair<int const, std::string> > >&, unsigned long) (alloc_traits.h:436)
+|   ->48.44% (16,944B) 0x407D4A: std::_Rb_tree<int, std::pair<int const, std::string>, std::_Select1st<std::pair<int const, std::string> >, std::less<int>, std::allocator<std::pair<int const, std::string> > >::_M_get_node() (stl_tree.h:599)
+|     ->35.13% (12,288B) 0x406C38: std::_Rb_tree_node<std::pair<int const, std::string> >* std::_Rb_tree<int, std::pair<int const, std::string>, std::_Select1st<std::pair<int const, std::string> >, std::less<int>, std::allocator<std::pair<int const, std::string> > >::_M_create_node<std::piecewise_construct_t const&, std::tuple<int const&>, std::tuple<> >(std::piecewise_construct_t const&, std::tuple<int const&>&&, std::tuple<>&&) (stl_tree.h:653)
+|     | ->35.13% (12,288B) 0x405B69: std::_Rb_tree_iterator<std::pair<int const, std::string> > std::_Rb_tree<int, std::pair<int const, std::string>, std::_Select1st<std::pair<int const, std::string> >, std::less<int>, std::allocator<std::pair<int const, std::string> > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<int const&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<int const, std::string> >, std::piecewise_construct_t const&, std::tuple<int const&>&&, std::tuple<>&&) (stl_tree.h:2414)
+|     |   ->35.13% (12,288B) 0x404F58: std::map<int, std::string, std::less<int>, std::allocator<std::pair<int const, std::string> > >::operator[](int const&) (stl_map.h:499)
+|     |     ->35.13% (12,288B) 0x4044C3: decompressLZW(std::vector<int, std::allocator<int> > const&) (lzw.cpp:31)
+|     |       ->35.13% (12,288B) 0x402ABB: benchmarkCompression(std::string const&, std::string const&) (main.cpp:64)
+|     |         ->35.13% (12,288B) 0x402DE1: main (main.cpp:98)
+|     |           
+|     ->13.31% (4,656B) 0x4073A0: std::_Rb_tree_node<std::pair<int const, std::string> >* std::_Rb_tree<int, std::pair<int const, std::string>, std::_Select1st<std::pair<int const, std::string> >, std::less<int>, std::allocator<std::pair<int const, std::string> > >::_M_create_node<std::piecewise_construct_t const&, std::tuple<int&&>, std::tuple<> >(std::piecewise_construct_t const&, std::tuple<int&&>&&, std::tuple<>&&) (stl_tree.h:653)
+|       ->13.31% (4,656B) 0x405DF7: std::_Rb_tree_iterator<std::pair<int const, std::string> > std::_Rb_tree<int, std::pair<int const, std::string>, std::_Select1st<std::pair<int const, std::string> >, std::less<int>, std::allocator<std::pair<int const, std::string> > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<int&&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<int const, std::string> >, std::piecewise_construct_t const&, std::tuple<int&&>&&, std::tuple<>&&) (stl_tree.h:2414)
+|         ->13.31% (4,656B) 0x4050F1: std::map<int, std::string, std::less<int>, std::allocator<std::pair<int const, std::string> > >::operator[](int&&) (stl_map.h:518)
+|           ->13.31% (4,656B) 0x4046BE: decompressLZW(std::vector<int, std::allocator<int> > const&) (lzw.cpp:46)
+|             ->13.31% (4,656B) 0x402ABB: benchmarkCompression(std::string const&, std::string const&) (main.cpp:64)
+|               ->13.31% (4,656B) 0x402DE1: main (main.cpp:98)
+|                 
+->27.97% (9,784B) 0x4EEACD8: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| ->19.03% (6,656B) 0x4EEAD29: std::string::_S_construct(unsigned long, char, std::allocator<char> const&) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->19.03% (6,656B) 0x405F45: char* std::string::_S_construct_aux<int>(int, int, std::allocator<char> const&, std::__true_type) (basic_string.h:5061)
+| | | ->19.03% (6,656B) 0x4051DE: char* std::string::_S_construct<int>(int, int, std::allocator<char> const&) (basic_string.h:5073)
+| | |   ->19.03% (6,656B) 0x4049F3: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<int>(int, int, std::allocator<char> const&) (basic_string.tcc:679)
+| | |     ->19.03% (6,656B) 0x4044AD: decompressLZW(std::vector<int, std::allocator<int> > const&) (lzw.cpp:31)
+| | |     | ->19.03% (6,656B) 0x402ABB: benchmarkCompression(std::string const&, std::string const&) (main.cpp:64)
+| | |     |   ->19.03% (6,656B) 0x402DE1: main (main.cpp:98)
+| | |     |     
+| | |     ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | |     
+| | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->08.23% (2,878B) 0x4EEB8EA: std::string::_Rep::_M_clone(std::allocator<char> const&, unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| | ->08.08% (2,826B) 0x4EEB993: std::string::reserve(unsigned long) (in /usr/lib64/libstdc++.so.6.0.19)
+| | | ->07.64% (2,673B) 0x4EEBD75: std::string::append(unsigned long, char) (in /usr/lib64/libstdc++.so.6.0.19)
+| | | | ->07.64% (2,673B) 0x404BDC: std::basic_string<char, std::char_traits<char>, std::allocator<char> > std::operator+<char, std::char_traits<char>, std::allocator<char> >(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, char) (basic_string.h:5985)
+| | | |   ->07.64% (2,673B) 0x40469C: decompressLZW(std::vector<int, std::allocator<int> > const&) (lzw.cpp:46)
+| | | |   | ->07.64% (2,673B) 0x402ABB: benchmarkCompression(std::string const&, std::string const&) (main.cpp:64)
+| | | |   |   ->07.64% (2,673B) 0x402DE1: main (main.cpp:98)
+| | | |   |     
+| | | |   ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |   
+| | | ->00.44% (153B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.15% (52B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.71% (250B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->01.46% (512B) 0x40848D: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (new_allocator.h:111)
+| ->01.46% (512B) 0x407B6A: std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long) (alloc_traits.h:436)
+|   ->01.46% (512B) 0x406A43: std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) (stl_vector.h:296)
+|     ->01.46% (512B) 0x405783: void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&) (vector.tcc:427)
+|       ->01.46% (512B) 0x404DCF: std::vector<int, std::allocator<int> >::push_back(int const&) (stl_vector.h:1085)
+|         ->01.46% (512B) 0x4042AC: compressLZW(std::string const&) (lzw.cpp:17)
+|           ->01.46% (512B) 0x402A4D: benchmarkCompression(std::string const&, std::string const&) (main.cpp:59)
+|             ->01.46% (512B) 0x402DE1: main (main.cpp:98)
+|               
+->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 66      4,522,783           28,864           22,437         6,427            0
+ 67      4,541,001           22,704           17,661         5,043            0
+ 68      4,559,219           16,560           12,925         3,635            0
+ 69      4,577,459           10,416            8,189         2,227            0
+ 70      4,595,677            4,272            3,453           819            0
+ 71      4,621,610              784              736            48            0
