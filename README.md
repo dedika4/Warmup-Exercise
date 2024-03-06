@@ -17,7 +17,7 @@ This program take text file and algorithm (RLE or LZW) as input and run (de)comp
 - main.cpp is where the main program call the compression and decompression function as well as recording (de)compression time
 - rle.cpp is the implementation of Run Length Encoding (de)compression
 - lzw.cpp is the implementation of Dictionary Coder (de)compression. In this case Lempel-Ziv-Welch algorithm is choosen because its simplicity and popularity
-- run.sh is just a shell script to automate the execution of various 
+- run.sh is just a shell script to automate the execution of various input for both algorithms
 
 How to Run:
 - Compile the c++ files.
